@@ -1,0 +1,64 @@
+//
+// Prefix header for all source files of the 'PDF_Export' target in the 'PDF_Export' project
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_3_0
+#warning "This project uses features only available in iOS SDK 3.0 and later."
+#endif
+
+#define MR_SHORTHAND
+#define _AFNETWORKING_PIN_SSL_CERTIFICATES_
+
+
+#ifdef __OBJC__
+    // Libraries
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+    #import <CoreData/CoreData.h>
+    #import "CoreData+MagicalRecord.h"
+    #import <SystemConfiguration/SystemConfiguration.h>
+    #import <MobileCoreServices/MobileCoreServices.h>
+    #import <QuartzCore/QuartzCore.h>
+    // Application
+    #import "ETGAppDefaults.h"
+    #import "ETGAppDelegate.h"
+    #import "ETGAlert.h"
+    #import "CommonMethods.h"
+    // Constants
+    #import "Constants.h"
+    // Slide Menu
+    #import "JASidePanelController.h"
+    #import "UIViewController+JASidePanel.h"
+    // Model Controllers
+    #import "ETGScorecardModelController.h"
+    #import "ETGPortfolioModelController.h"
+    #import "ETGProjectModelController.h"
+    #import "ETGPDFModelController.h"
+    // Formatters
+    #import "NSString+ETGStringFormatter.h"
+    #import "NSDate+ETGDateFormatter.h"
+    // User Default
+    #import "ETGUserDefaultManipulation.h"
+    // Token
+    #import "ETGToken.h"
+    // Token Keychain
+    #import "KeychainItemWrapper.h"
+    // CocoaLumberJack
+    #import "DDLog.h"
+    #import "KeychainItemWrapper.h"
+    #import "ETGExpiredTokenCheck.h"
+    #import "ETGKeychainCredentials.h"
+    #ifdef DEBUG
+        static const int ddLogLevel = LOG_LEVEL_VERBOSE;
+//        #define _AFNETWORKING_ALLOW_INVALID_SSL_CERTIFICATES_
+    #else
+        static const int ddLogLevel = LOG_LEVEL_ERROR;
+    #endif
+
+#endif
+
+
+
+

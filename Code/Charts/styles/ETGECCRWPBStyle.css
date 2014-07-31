@@ -1,0 +1,22 @@
+#eccrCPBTable td:nth-child(n+3),
+			#eccrWPBTable td:nth-child(n+3):nth-child(-n+4){
+			  text-align: right;
+			}
+			
+			#eccrWPBTable td:nth-child(5){
+			  text-align: center;
+			}
+			
+			/* End common styles */
+			
+			#eccrWPBTable th,
+			#eccrWPBTable td{
+			  width: 200px;
+			  max-width: 200px;
+			}
+			
+			#eccrWPBTable th:nth-child(2),
+			#eccrWPBTable td:nth-child(2){
+			  width: 204px;
+			  max-width: 204px;
+			}

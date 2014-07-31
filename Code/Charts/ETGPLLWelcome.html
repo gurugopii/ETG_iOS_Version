@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+            
+            <title>ETGPLLWelcome</title>
+            <meta name="description" content="">
+                <meta name="author" content="yevgeniy.kim">
+<!--                   <meta name="viewport" content="user-scalable=no">  -->
+                        <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
+                            
+                            <link href="styles/bootstrap.css" rel="stylesheet" media="screen">
+                                <link href="styles/ETGPLL-GeneralStyle.css" rel="stylesheet" media="screen">
+                                <link href="styles/ETGPLLWelcomeStyle.css" rel="stylesheet" media="screen">
+                                    
+                                    </head>
+    
+    <body>
+        <div id="pllWelcomeContainer">
+            <img id="imgLogo" src="images/pllWelcomeLogo.png"/>
+        
+          <header>
+            <h1>Project Lesson Learnt</h1>
+          </header>
+        </div>
+        
+        
+        <form id="searchForm">
+            <input name="searchPLL" class="form-control" id="tbSearchBar" type="email" placeholder="Search">
+                <div class="hidden-submit"><input type="submit" tabindex="-1"/></div>
+                </form>
+        
+		<div id="backButtonContainer">Home</div>
+        <div id="lessonsCountContent" class="tab-content">
+            <div class="tab-pane fade" id="projectsCountTab">
+                <!-- <p>List of projects with number of lessons <a href="ETGPLLResults.html">Projects</a></p> -->
+            </div>
+            <div class="tab-pane fade" id="pllReviewsCountTab">
+                <!-- <p>List of PLL Reviews with number of lessons <a href="ETGPLLResults.html">Projects</a></p> -->
+            </div>
+        </div>
+        <div class="navbar navbar-fixed-bottom">
+            <ul id="lessonsCountSwitch" class="nav nav-pills">
+                <li><a href="#projectsCountTab" data-toggle="tab">Projects</a></li>
+                <li><a href="#pllReviewsCountTab" data-toggle="tab">PLL Reviews</a></li>
+            </ul>
+        </div>
+        
+        <script src="scripts/jquery-2.0.1.js"></script>
+        <script src="scripts/bootstrap-custom.js"></script>
+        <script src="scripts/jquery.tablesorter.js"></script>
+        <script src="scripts/util.js"></script>
+        <script src="scripts/PLL-SampleData.js"></script>
+        <script src="scripts/ETGPLL-util.js"></script>
+        <script src="scripts/ETGPLLWelcomeScript.js"></script>
+    </body>
+</html>

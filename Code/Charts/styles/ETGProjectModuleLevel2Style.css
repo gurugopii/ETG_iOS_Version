@@ -1,0 +1,397 @@
+body{
+  overflow-y: hidden;
+}
+
+th{
+  background-color: #02AD9D;
+  height: 40px;
+}
+
+td{
+  height: 44px;
+  padding: 3px 20px;
+}
+
+th, td{
+  word-wrap: break-word;
+}
+
+#keyMilestoneMainContainer{
+  background: #FFF;
+}
+
+#keymilestoneTable th,#keymilestoneTable  td{
+  width: 246px;
+  max-width: 246px;
+}
+
+#keymilestoneTable th:first-child{
+  background-image: none;
+}
+
+.milestone-chart-div, #milestone-left-container, .title-div{
+  float: left;
+}
+
+#keyMilestoneChart{
+  width: 640px;
+  height: 400px;
+}
+
+#hydro-container{
+  width: 340px;
+  margin-top: 0px;
+  height: 200px;
+  padding-left: 10px;
+}
+
+#milestone-left-container p{
+  text-align: left;
+  padding: 15px 0 0 10px;
+}
+
+#milestoneMiniTable{
+  width: 320px;
+  height: 100px;
+  margin: 0;
+}
+
+#milestoneMiniTable tbody{
+  max-height: 200px;
+}
+
+#milestoneMiniTable th,
+#milestoneMiniTable td{
+  width: 100px;
+  max-width: 100px;
+  border: 1px solid #FFF;
+  height: 44px;
+  padding: 3px 10px;
+}
+
+/* afe */
+#afe-title,
+.riskAndOp-title,
+#ppms-title{
+  margin: 10px 0 0 0;
+  font-size: 15px;
+  color: #02AD9D;
+}
+
+#AFESummaryTable{
+  width: 600px;
+}
+
+#fourth-page .fixed-table-container-afe{
+  padding-top: 37px;
+  height: 255px;
+}
+#AFESummaryTable tbody{
+  height: 154px;
+}
+#AFESummaryTable th,
+#AFESummaryTable td{
+  height: 40px;
+}
+
+#AFESummaryTable th,
+#AFESummaryTable td{
+  width: 200px;
+  max-width: 200px;
+  border: 1px solid #FFF;
+  padding: 8px;
+}
+#AFELegend{
+  margin-left: 15px;
+}
+#AFELegend p{
+  padding-right: 15px;
+width: 323px;
+float: left;
+/* color: #000; */
+font-size: 14px;
+}
+#AFELegend p:first-child{
+  text-align: left;
+}
+#AFELegend p:last-child{
+  text-align: right;
+}
+#afeMainChartContainer{
+  /* height: 270px; */
+  height: 300px;
+  background: #FFF;
+}
+
+#afeMainTableContainer{
+  /* height: 350px; */
+  height: 375px; /* remove 25 plus 44 of thead */
+}
+
+#AFETable tbody{
+  height: 305px;
+}
+
+#AFETable th,
+#AFETable td{
+  height: 40px;
+}
+
+/* rtbd */
+#rtbdTable th,
+#rtbdTable td{
+  width: 196px;
+  max-width: 196px;
+}
+
+#rtbdTable th:nth-child(n+2),
+#rtbdTable td:nth-child(n+2){
+  width: 197px;
+  max-width: 197px;
+}
+
+/* risk & opportunity */
+.div-risk-op {
+  width : 984px;
+  text-align : center;
+  float : left;
+}
+
+/* summary */
+#riskSummaryTable th,
+#riskSummaryTable td,
+#opportunitySummaryTable th,
+#opportunitySummaryTable td{
+  width: 150px;
+  max-width: 150px;
+  border: 1px solid #FFF;
+  max-width: 150px;
+  word-wrap: break-word;
+}
+
+#riskSummaryTable td,
+#opportunitySummaryTable td,
+#riskTable td,
+#opportunityTable td{
+  vertical-align: middle;
+}
+
+#riskSummaryTable,
+#opportunitySummaryTable{
+  width: 450px;
+  table-layout: fixed;
+}
+
+#risk-chart-subtitle,
+#opportunity-chart-subtitle,
+#risk-table-subtitle,
+#opportunity-table-subtitle{
+  margin: 0 auto;
+  /*
+  color: #999;
+  */
+}
+
+#risk-chart-subtitle,
+#opportunity-chart-subtitle{
+  width: 475px
+}
+#risk-table-subtitle,
+#opportunity-table-subtitle,
+caption{
+  text-align: center;
+  color: #02AD9D;
+  background-color: #FFFFFF;
+  
+}
+#opportunityMainChartContainer,
+#riskMainChartContainer{
+  height: 160px;
+  width: 475px;
+  padding-left: 30px;
+}
+
+#riskSummaryTable tbody,
+#opportunitySummaryTable tbody{
+  height: 135px;
+}
+
+#riskOpChartContainer{
+  background: #FFF;
+  height: 250px;
+}
+
+
+/* detailed */
+#riskTable tbody,
+#opportunityTable tbody{
+  height: 137px;
+   /* margin-top: 31px; */
+}
+
+#riskTable,
+#opportunityTable{
+  border: 1px solid #fff;
+}
+
+#riskMainTableContainer, #opMainTableContainer{
+  height: 198px;
+}
+
+#riskTable th,
+#riskTable td,
+#opportunityTable th,
+#opportunityTable td{
+  width: 123px;
+  max-width: 123px;
+  border: none;
+}
+
+#tableOpportunityContainer{
+  height : 117px;
+}
+
+/* hse */
+
+#HSETable th,
+#HSETable td{
+  border: none;
+}
+/* ppms */
+#ppmsTableContainer{
+  /* Make the container take the whole screen */
+  height: 650px;
+  background: #FFF;
+}
+
+#ppmsTableContainer .fixed-table-container{
+  height: 300px;
+}
+
+#PPMSReviewTable{
+  width: 600px;
+  margin-top: 44px;
+}
+
+#PPMSReviewTable th, 
+#PPMSReviewTable td{
+  border: 1px solid #FFF;
+}
+.ppms-status-column{
+  width: 300px;
+  max-width: 300px;
+}
+
+.ppms-other-column,
+.ppms-other-column-header{
+  width: 150px;
+  max-width: 150px;
+}
+
+
+#PPMSReviewTable tbody{
+  height: 250px;
+}
+
+/* For highlighting a row on click */
+.highlighted {
+    background-color: #CDFFEE !important;
+}
+
+.title-div{
+  text-align: left;
+  /* font-size: 12px; */
+}
+
+/* define the width for each div of module title based on possible width content */
+#project-id-title{
+width: 30%;
+}
+#reporting-month-title, #status-title {
+width: 20%;
+}
+#currency-title, #update-title {
+width: 15%;
+}
+
+
+table tr:nth-child(odd){
+  background-color: #FFF;
+}
+
+table tr:nth-child(even){
+  background-color: #F3F3F3;
+}
+
+.back{
+  position: relative;
+}
+
+#close-button{
+    left: 400px;
+	top: -10px;
+}
+
+#close-riskOp{
+  top: -10px;
+  left: 363px;
+}
+
+#close-ppms{
+  left: 376px;
+  top: -10px;
+}
+
+#milestoneMiniTable th,
+#AFESummaryTable th,
+#riskSummaryTable th,
+#opportunitySummaryTable th{
+  color: black;
+  background-color: #CDFFEE;
+}
+
+tbody{
+  height: 205px;
+}
+
+.swipe-wrap{
+  margin-left: 20px;
+}
+
+.chart-dimension{
+  margin: 0;
+}
+
+.table-dimension{
+  margin: 0;
+}
+
+.title{
+  margin: 5px 0 5px 20px;
+}
+
+.title,
+.table-dimension,
+.chart-dimension,
+table{
+  width: 984px;
+}
+
+#HSETable th,
+#HSETable td,
+#AFETable th,
+#AFETable td,
+#budgetTable th,
+#budgetTable td,
+#scheduleTable th,
+#scheduleTable td{
+  width: 164px;
+  max-width: 164px;
+}
+
+.title p{
+  margin: 0;
+}
+#currency-title{
+  text-align: center;
+}

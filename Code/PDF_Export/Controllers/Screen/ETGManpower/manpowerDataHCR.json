@@ -1,0 +1,51 @@
+{
+    "chartdata": {
+        "title": "Headcount Requirement by P&E Cluster",
+        "categories": [
+                       "2012",
+                       "2013",
+                       "2014",
+                       "2015",
+                       "2016",
+                       "2017",
+                       "2018",
+                       "2019",
+                       "2020"
+        ],
+        "yLabel": "Headcount",
+        "series": [
+            {
+                "name": "Filled",
+                "data": [
+                         800,
+                         750,
+                         700,
+                         650,
+                         600,
+                         550,
+                         500,
+                         450,
+                         400,
+                ]
+            },
+            {
+                "name": "Vacant",
+                "data": [
+                         800,
+                         700,
+                         600,
+                         60,
+                         500,
+                         400,
+                         300,
+                         200,
+                         100,
+                ]
+            }
+        ]
+    },
+    "topInformation": {
+        "reportingPeriod": "Jan-2014",
+        "updated": "28 Feb 2014"
+    }
+}

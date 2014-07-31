@@ -1,0 +1,19 @@
+
+			#eccrCPBTable td:nth-child(n+3){
+			  text-align: right;
+			}
+			
+			#eccrCPBTable th:nth-child(n+1):nth-child(-n+2),
+			#eccrCPBTable td:nth-child(n+1):nth-child(-n+2){
+			  min-width: 100px;
+			  nax-width: 100px;
+			}
+			
+			.tapForCPS{
+			  color: #02ad9d;
+			  text-decoration: underline;
+			}
+
+			tbody{
+			  height: 145px;
+			}

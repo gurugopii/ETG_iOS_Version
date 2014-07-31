@@ -1,0 +1,747 @@
+* {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+}
+@font-face{
+font-family: 'Museo Sans 900';
+src: url('font/MuseoSans_900.otf');
+}
+
+@font-face{
+font-family: 'Museo Sans 300';
+src: url('font/MuseoSans_300.otf');
+}
+
+html {
+  font-family: "Museo Sans 900";
+  min-width: 100%;
+  min-height: 100%;		 
+}
+		
+body {
+  width: 1024px;
+  height: 768px;
+  background-color : transparent;
+  font-family: "Museo Sans 300";
+  color: #000;
+}
+		
+#maintable tr:nth-child(even) {
+  background-color: #F3F3F3;
+}
+
+#maintable tr:nth-child(odd) {
+  background-color: #FFF;
+}
+
+/* #maintable tr:hover, */
+.popover tbody tr:hover,
+.highlight-row{
+  background-color : #CDFFEE !important;
+}
+
+/* #maintable td:not(.region-column):hover{
+  background-color : #D1E2E2;
+} */
+
+.project{
+  text-decoration: underline;
+  color: #0A6F6F;
+}
+
+/* td[data-projectname~=Project]{
+  text-decoration: underline;
+} */
+
+#maintable,
+#maintable-header{
+  width: 984px;
+  margin: 0 auto;
+}
+
+#maintable{
+  margin-top: 30px;
+}
+
+#maintable,
+#maintable-header {
+  text-align: center;
+  padding-left: 0;
+  padding-right: 0; 
+}
+
+#maintable th, 
+#maintable td,
+#maintable-header th{
+  border: none;
+  border-left: 2px solid #DDD;
+  height: 44px;
+}
+
+#maintable td:nth-child(1),
+#maintable-header th:nth-child(1){
+  border-left: none;
+}
+#maintable th, 
+#maintable td{
+  /*width: 140px;*/
+  vertical-align: middle;
+}
+		
+#maintable-header th{
+  /*width: 140px;*/
+  color: #FFF;
+}
+		 
+#maintable th, 
+#maintable-header th{
+  text-align: center;
+  background-color: #00AE9D;
+  vertical-align: middle;
+  color: #FFF;
+  font-weight: normal;
+}
+
+#maintable td:nth-child(n+1):nth-child(-n+2){
+  text-align: left;
+
+}
+
+#maintable td{
+  text-align: center;
+}
+.tableRow td:nth-child(n+3):nth-last-child(n){
+  font-size: 0px;
+}
+.withIndicator{
+  width: 100px;
+  background-repeat: no-repeat;
+  background-position: center;
+  font-size: 0px;
+  color: transparent;
+}
+		
+.popoverTable{
+  text-align: left;
+  /*0923*/
+  /*font-weight: bold;*/
+}
+		
+		
+		
+/*style for schedule-platform table popover*/
+#schedulePlatformTable{
+  text-align: left;
+}
+
+/* #schedulePlatformTable tr:first-child{
+  outline: thin solid black;
+  text-align: left;
+} */
+		
+#schedulePlatformTable th, #schedulePlatformTable td{
+  width: 60px;
+  vertical-align: middle;
+}
+		
+/*style for schedule-schedule table popover*/
+#scheduleScheduleTable{
+  text-align: left;
+}
+
+#scheduleScheduleTable td,
+#scheduleScheduleTable th{
+  vertical-align: middle;
+}
+
+#scheduleScheduleTable th,
+#schedulePlatformTable th{
+  background: #D5E5E5;
+}
+
+[data-td=small]{
+  width:190px;
+  color: #02AD9D;
+}
+		
+/*production popover style*/
+#productionTable{
+  text-align: center;
+  
+/*   width: 860px;
+  max-width: 860px !important; */
+}
+
+/* #productionTable tr:last-child{
+  border-top: 1px solid rgb(131,131,131);
+  border-top-width: 2px;
+} */
+
+.planned-outlook{
+  width: 70px;
+  max-width: 70px !important;
+}
+
+.ind{
+  width: 40px;
+  max-width: 40px !important;
+}
+/* #productionTable th,
+#productionTable td{
+  width: 50px;
+  max-width: 50px !important;
+} */
+#productionTable th, .productionTableHeader2 th{
+  text-align: center;
+  vertical-align: middle;
+}
+#productionTable td{
+  vertical-align: middle;
+}
+.productionTableHeader2 th:not(.emptyHeader){
+  background: #D5E5E5;
+  outline: thin solid #FFF;
+}
+
+.productionDashedBorder{
+  border-right: 2px dashed gray;
+}
+
+#productionTable .emptyHeader{
+  width: 10px;
+  padding: 2px;
+}
+
+#productionTable tr td:first-child{
+  width: 100px;
+  max-width: 100px !important;
+}
+.productionTableHeader2 .emptyHeader{
+  background: #fff;
+}
+
+#productionTable .productionTableHeader2 th:nth-child(1){
+  text-align: left;
+  padding: 8px;
+}
+
+		
+/*hse popover style*/
+#hseTable,
+#hseLegendTable{
+  text-align:center;
+  background: #FFF;
+  border-radius: 0;
+  margin:0;
+}
+
+#hseLegendTable td:nth-child(3){
+  width: 180px;
+  max-width: 180px;
+}
+
+#hseTable{
+  border-radius: 0 0 10px 10px;
+}
+
+
+#hseTable th{
+  border-radius: 10px;
+}
+
+
+
+[data-hse=header],
+.productionMainHeader{
+  color: #02AD9D;
+  background: #fff;
+}
+#hseLegendTable{
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+
+#hseLegendTable{
+  text-align: left;
+}
+		
+/*cost pmu popover style*/
+#pmuTable1,
+#pmuTable2{
+  font-size: 11px;
+  border-radius: 10px;
+}
+
+#pmuTable1{
+  background-color: #FFF;
+}
+
+#pmuTable2{
+  background-color: #D5E5E5;
+  margin-bottom: 0;
+}
+
+/* #pmuTable2 th:first-child, */
+#pmuTable1 th:first-child,
+#pmuTable2 th:first-child,
+[data-name=wpb],
+#pcsbTable1 th:first-child,
+#pcsbTable3 th:first-child,
+#pcsbTable2 th:first-child{
+  text-align: left;
+  color: #02AD9D;
+}
+
+#pmuTable2 th,
+#pmuTable2 td,
+#pmuTable1 th,
+#pmuTable1 td{
+  width: 100px;
+}
+
+
+
+		
+/*pcsb popover style*/
+#pcsbTable1, #pcsbTable2, #pcsbTable3{
+  /* text-align: right; */
+  font-size: 12px;
+}
+
+#pcsbTable3{
+  margin-bottom: 0;
+}
+		
+#pcsbTable1, #pcsbTable3{
+  background-color: rgb(255,255,255);
+}
+
+#pcsbTable2{
+  background-color: #D5E5E5;
+}
+
+		
+#pcsbTable1 th:first-child,
+#pcsbTable3 th:first-child,
+#pcsbTable2 tr>td:first-child, 
+#pcsbTable2 th:first-child{
+  text-align: left;
+}
+
+/* #pcsbTable1 th,
+#pcsbTable1 td,
+#pcsbTable2 th,
+#pcsbTable2 td,
+#pcsbTable3 th,
+#pcsbTable3 td{
+  text-align: right;
+} */
+
+#pcsbTable1 th, 
+#pcsbTable1 td, 
+#pcsbTable2 th,
+#pcsbTable2 td{
+  width : 120px;
+}
+
+
+#pcsbTable3 th,
+#pcsbTable3 td{
+  width: 100px;
+}
+
+#pmuTable1 th:nth-child(1),
+#pmuTable2 th:nth-child(1),
+#pmuTable1 td:nth-child(1),
+#pmuTable2 td:nth-child(1),
+#pcsbTable3 th:nth-child(1),
+#pcsbTable3 td:nth-child(1){
+  width: 200px;
+  max-width: 200px;
+}
+
+.scheduleDiv{
+  padding: 10px;
+  /* border: 1px solid; */
+  border-radius: 10px;
+  background: #FFF;
+}
+		
+#scheduleDivForChart{
+  /* margin: 10px;
+  background-color: gray; */
+  height: 320px;
+}
+		
+/* #productionDiv{
+  padding: 10px;
+  border: 1px solid;
+  border-radius: 10px;
+  width: 970px;
+  background-color: rgb(255, 255, 255);
+} */
+		
+#productionDivContainer{
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #FFF;
+}
+
+/* .pmuDiv{
+  background-color: rgb(242, 242, 242);
+  border: 1px solid;
+  border-radius: 10px;
+  padding: 10px;
+} */
+		
+/* #pcsbDiv{
+  padding: 10px;
+  background-color: rgb(217, 217, 217);
+  border: 1px solid;
+  border-radius: 10px;
+} */
+		
+#projectTableContainer{
+  padding:20px; 
+  width:250px; 
+  font-size:18px;
+}
+
+#projectTableContainer th{
+  color: #FFF;
+}
+
+#projectTableContainer tbody tr{
+  background-color: #fff;
+}
+
+#projectTableContainer tbody{
+  border-radius: 8px;
+}
+
+#projectTableContainer th,
+#projectTableContainer td{
+  padding: 5px;
+}
+
+#projectTableContainer tr:nth-child(1) td{
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+#projectTableContainer tr:nth-child(3) td{
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+
+
+#projectTableContent{
+  width:100%; 
+  background-color: #FFF; 
+  border-radius:4px;
+  font-size:18px;
+}
+    
+	/*The width auto will update the popover width based on content. 
+     * 
+     * !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+     * Max-width should be updated.
+     */
+    	.popover {
+			max-width: 1020px;
+			width: auto;
+		}
+		
+.highlightStyle{
+  background-color: #D1E2E2;
+  background-repeat:no-repeat;
+  background-position:center; 
+}
+	
+.topBorder{
+  border-top:3px solid #BBB;
+}
+	
+img{
+  max-width: 32px;
+  max-height: 32px;
+}
+
+#productionTable th,
+#schedulePlatformTable th, 
+#scheduleScheduleTable th,
+#hseTable th, 
+#pmuTable1 th, 
+#pmuTable2 th, 
+#pcsbTable1 th, 
+#pcsbTable2 th, 
+#pcsbTable3 th,
+.center{
+  text-align: center;
+  vertical-align: middle;
+  font-weight: normal;
+}
+
+.right{
+  text-align: right;
+}
+
+.left{
+  text-align: left;
+}
+
+.center{
+  text-align: center;
+}
+
+th{
+  font-family: "Museo Sans 300";
+  text-align: center;
+  font-size: 13px;
+  height: 44px;
+}
+
+td{
+  font-family: "Museo Sans 300";
+  font-size: 13px;
+}
+
+th, td{
+  vertical-align: middle;
+  padding: 5px;
+}
+.table tbody > tr > td,
+.table tbody > tr > th{
+  border-top: none;
+}
+
+#header-div{
+	  position: fixed;
+	  z-index: 1011;
+	  width: 984px;
+	  left: 20px;
+	  top: 30px;
+}
+
+.normal-sort-image{
+  background-image : url(../images/sort_btn.png);
+  background-repeat : no-repeat;
+  background-position : center right;
+}
+.asc-sort-image{
+  background-image : url(../images/up.png);
+  background-repeat : no-repeat;
+  background-position : center right;
+}
+.desc-sort-image{
+  background-image : url(../images/down.png);
+  background-repeat : no-repeat;
+  background-position : center right;
+}
+
+.popover{
+  background-color: #00AE9D;
+}
+
+.popover.bottom .arrow:after,
+.popover.bottomRight2 .arrow:after{
+  border-bottom-color: #00AE9D;
+}
+
+.popover.top .arrow:after,
+.popover.topRight2 .arrow:after{
+  border-top-color: #00AE9D;
+}
+
+.table{
+  margin-bottom: 5px;
+  border-radius: 10px;
+}
+
+.table th,
+.table td{
+  max-width: 100px;
+  word-wrap: break-word;
+}
+
+.title {
+width: 984px;
+height: 30px;
+margin-left: 20px;
+padding: 5px 0 5px 0;
+position: fixed;
+top: 0px;
+background: #EBEBEB;
+z-index: 1011;
+}
+
+.portfolio-title {
+text-align: center;
+width: 25%;
+float: left;
+}
+
+#report-period{
+  text-align: left;
+}
+#update{
+  text-align: right;
+  font-style: italic;
+}
+
+.region-column,
+[data-type=region]{
+  max-width: 200px;
+}
+.project-column,
+[data-type=project]{
+  width: 283px;
+}
+.indicator-column,
+[data-type=production],
+[data-type=hse],
+[data-type=schedule],
+[data-type=pcsb],
+[data-type=pmu]{
+  width: 100px;
+}
+
+.popover-content{
+  padding: 4px;
+}
+
+.table tbody > tr > td{
+  vertical-align: middle;
+}
+
+.noData{
+  text-align: center;
+}
+
+.productionNoData{
+  padding: 8px;
+  padding-left: 100px;
+  height: 48px;
+  
+}
+
+
+/* popover arrow placement */
+.popover.topLeft .arrow,
+.popover.bottomLeft .arrow{
+  left: 43%;
+}
+
+.indicatorsForHSE{
+  background-repeat:no-repeat; 
+  background-position:center; 
+  background-size:30px 30px; 
+  width: 40px; 
+  height: 40px;
+}
+
+.popover-projectname{
+  color: #02AD9D;
+  text-align: center;
+  margin: 0;
+  padding: 5px;
+  /* font-weight: bold; */
+}
+
+.title-background{
+  background-color:#fff; 
+  border-radius:10px 10px 0 0;
+}
+#pcsbTable3 thead th:nth-child(7){
+  padding: 14px;
+  text-align: left;
+}
+
+#pcsbTable3 tbody td:nth-child(7){
+  padding-left: 25px;
+}
+
+#pcsbTable1,
+#pmuTable1{
+  border-radius: 0 0 10px 10px;
+}
+
+/* Manpower styles */
+#mpsPopoverContainer{
+  background-color: #FFF;
+  width:480px;
+  margin:48;
+  padding: 4px;
+  border-radius: 12px;
+}
+#mpsPopoverTable thead th{
+  border: none;
+  font-weight: normal;
+}
+.mpsPopoverHeader{
+  color: #02AD9D;
+  font-size: 1.1em;
+  font-weight: bold;
+}
+.mpsPopoverLegend{
+  text-align: center;
+  border-radius:24px;
+  border-width: 0px;
+  border-style: solid;
+  border-color: #696e5d;
+  display:block;
+  padding: 6px 0;
+}
+.mpsPopoverLegend div{
+  display: inline-block;
+  vertical-align: middle;
+}
+.mpsPopoverlegendCircle{
+  height:18px;
+  width: 18px;
+  border-radius: 12px;
+  margin-right: 2px;
+}
+.mpsPopoverLegendText{
+  width: 85%;
+  text-align: left;
+}
+.mpsBarContainer{
+  background-color:#F3F3F3;
+  display:block;
+  height:36px;
+}
+.mpsBarContainer div{
+  display:block;
+  height:36px;
+  margin:0;
+  padding:0;
+  line-height:36px;
+  text-align:center;
+  font-size: 1.3em;
+}
+
+/* for production */
+#productionTable .emptyHeader{
+  width: 10px;
+  max-width: 10px;
+}
+#productionTable .prod-facility{
+  width: 100px;
+  max-width: 100px;
+}
+
+
+/* arrow placement for pcsb topright */
+.popover.topRight .arrow {
+  left: 71%;
+}
+/* arrow placement for pmu topright2 */
+.popover.topRight2 .arrow {
+  left: 84%;
+}
+
+/* arrow placement for schedule toprightschedule */
+.popover.topRightSchedule .arrow {
+  left: 49.7%;
+}

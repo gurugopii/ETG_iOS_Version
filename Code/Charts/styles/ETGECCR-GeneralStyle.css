@@ -1,0 +1,119 @@
+/* Common styles */
+			@font-face{
+			  font-family: 'Museo Sans 300';
+			  src: url('font/MuseoSans_300.otf');
+			}
+			body{
+			  width: 1024px;
+			  height: 704px;
+			  padding: 0 10px 0 10px;
+			  background: rgba(138, 138, 138, 0.22);
+			  font-family: 'Museo Sans 300';
+			  color: #000;
+			}
+			
+			.headerInformation{
+			  height: 30px;
+			  width: 1004px;
+			  padding-bottom: 5px;
+			}
+			
+			.headerInformation div{
+			  float: left;
+			  width: 33%;
+			  padding: 5px 0 5px 0;
+			}
+			
+			.headerInformation div:nth-child(3){
+			  text-align: right;
+			  width: 34%
+			}
+			
+			.chartContainer{
+			  height: 440px;
+			}
+			
+			.tableContainer{
+			  overflow: hidden;
+			}
+			
+			div{
+			  /* margin-bottom: 6px; */
+			}
+			
+			table{
+			  table-layout: fixed;
+			  width: 1004px;
+			}
+			
+			thead,
+			tbody{
+			  display: block;
+			}
+			
+			table tr:nth-child(odd){
+			  background-color: #fff;
+			}
+			
+			table tr:nth-child(even){
+			  background-color: #f0f0f0;
+			}
+			
+			table th,
+			table td{
+			  padding: 5px;
+			  word-wrap: break-word;
+			  border: none;
+			  height: 44px;
+			}
+			
+			table th{
+			  text-align: center;
+			  background-color: #02ad9d;
+			  color: #fff;
+			  font-weight: normal;
+			}
+			
+			table td{
+			  text-align: left;
+			  padding: 5px 8px;
+			}
+			
+			tbody{
+			  height: 190px;
+			  overflow-y: scroll;
+			  -webkit-overflow-scrolling: touch;
+			}
+			
+			/* css for sorting images */
+			table.petronas thead tr .tablesorter-headerAsc,
+			table.petronas thead tr .tablesorter-headerDesc,
+			table.petronas thead tr .tablesorter-header{
+			  background-repeat : no-repeat;
+			  background-position : center right;
+			}
+
+			table.petronas thead tr .tablesorter-headerDesc, 
+			table.petronas thead tr .tablesorter-headerAsc {
+			  background-color : #80cabb;
+			}
+
+			table.petronas thead tr .tablesorter-header{
+			  background-image : url(../images/sort_btn.png);
+			}
+
+			table.petronas thead tr .tablesorter-headerAsc {
+			  background-image : url(../images/up.png);
+			}
+			table.petronas thead tr .tablesorter-headerDesc {
+			  background-image : url(../images/down.png);
+			}
+			
+			tr:hover{
+			  background-color: #CDFFEE !important;
+			}
+			img{
+			  max-width: 30px;
+			  max-height: 30px;
+			}
+			

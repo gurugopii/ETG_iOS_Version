@@ -1,0 +1,53 @@
+{
+    "chartdata": {
+        "categories": [
+            "2012",
+            "2013",
+            "2014"
+        ],
+        "series": [
+            {
+                "data": [
+                    10,
+                    9,
+                    13
+                ],
+                "name": "Filled"
+            },
+            {
+                "data": [
+                    3,
+                    1,
+                    2
+                ],
+                "name": "Vacant"
+            }
+        ],
+        "title": "Manpower Loading Histogram",
+        "yLabel": "Headcount"
+    },
+    "tabledata": {
+        "body": [
+            {
+                "filled": 10,
+                "name": "2012",
+                "vacant": 5
+            },
+            {
+                "filled": 15,
+                "name": "2013",
+                "vacant": 9
+            },
+            {
+                "filled": 19,
+                "name": "2014",
+                "vacant": 12
+            }
+        ],
+        "header": "Year"
+    },
+    "topInformation": {
+        "reportingPeriod": "Jan-2014",
+        "updated": "28 Feb 2014"
+    }
+}

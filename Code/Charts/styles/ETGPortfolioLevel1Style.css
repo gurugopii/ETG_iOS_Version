@@ -1,0 +1,158 @@
+img{
+  max-width: 10px;
+}
+th, td{
+  word-wrap: break-word;
+}
+
+.portfolio-title{
+  text-align: left;
+  width: 25%;
+}
+
+#operatorship, #phase{
+  text-align: center;
+}
+#hydro_legend span,
+.portfolio-title{
+  /*
+  color: #999;
+  */
+}
+
+#hydroTable .td-month{
+  background-image: none;
+}
+
+.tr-even {
+  background-color: #FFF;
+}
+
+.tr-odd {
+  background-color: #F3F3F3;
+}
+
+.first-chart{
+  height: 317px;
+  width: 496px;
+  margin: 0 0 10px 10px;
+}
+
+.withHydroTable {
+  height: 317px;
+  /* width: 355px; */
+  width: 394px;
+  margin: 0 0 10px 10px;
+}
+
+#hydroMainContainer{
+  height: 644px;
+  width: 600px;
+  margin: 0 0 10px 10px;
+}
+
+#tableHydroContainer{
+  /* height: 597px; */
+  margin: 0;
+  width: 600px;
+}
+
+#hydroTable{
+  /* margin-top:15px; */
+   height: 554px;
+  text-align: left;
+  width: 600px;
+  overflow: visible;
+}
+
+#hydroTable tbody{
+  height: 554px; /* Exact size to nicely fit the hydro table */
+}
+
+#hydroTable th,
+#hydroTable td{
+  padding: 0;
+  padding-left: 2px;
+}
+
+#hydroTable .td-main {
+  width: 80px;
+  max-width: 80px;
+}
+
+#hydroTable tbody tr{
+  height: 22px;
+}
+
+#legend,
+#hydroTable .td-month {
+ font-size: 12px;
+}
+
+#hydroTable .td-month {
+  width: 30px;
+  max-width: 30px;
+}
+
+#hydroTable th {
+  /* background-color: white; */
+  color: black;
+}
+#hydroTable th:nth-child(n):nth-child(-n+3) {
+  text-align: center;
+}
+
+/* #hydroTable thead {
+  top: 20px;
+  left:10px;
+}
+ */
+#legend {
+  height: 27px;
+  margin-top: 2px;
+  width: 600px;
+  background : #FFF;
+}
+
+#legend span:nth-child(odd){
+  padding-right: 5px;
+}
+#hydro_legend span:nth-child(even){
+  margin-right: 10px;
+}
+#legend,
+#hydro-title {
+  margin: 0;
+}
+
+#hydro-title {
+  margin: 10px 0 5px 0; /* !!!!!!!!!! for moving the title a bit down. */
+  font-size: 15px;
+  width: 600px;
+  background: #FFF;
+  color: #02AD9D;
+}
+
+#hydro_legend {
+  /* border: 1px solid black; */
+  margin: 0 auto;
+  padding: 5px;
+  width: 515px;
+  color: #999;
+}
+
+#hydroTable .tr-hover ,
+#hydroTable th{
+  background-color: #CDFFEE;
+}
+
+.project{
+  color: #02AD9D;
+  text-decoration: underline;
+}
+
+
+
+.swipe-wrap{
+  margin-left: 0px;
+}

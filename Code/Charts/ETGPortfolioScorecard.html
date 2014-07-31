@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Porftolio Scorecard</title>
+  <meta name="viewport" content="user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
+  <!-- Bootstrap -->
+  <link href="styles/bootstrap.min.css" rel="stylesheet" media="screen">
+  <link href="styles/popover-extra-placements-custom.css" rel="stylesheet" media="screen">
+  <link href="styles/ETGPortfolioScorecardStyle.css" rel="stylesheet" media="screen">
+  <style>
+      
+  </style>
+
+</head>
+<body>
+	<div class="title div left">
+		<div id="report-period" class="portfolio-title"></div>
+		<div id="operatorship" class="portfolio-title"></div>
+		<div id="phase" class="portfolio-title"></div>
+		<div id="update" class="portfolio-title"></div>
+	</div>
+    <div id="header-div">
+	  <table id="maintable-header" class="tablesorter"> 
+		<thead>
+	       <tr class="header">
+		       	<th class="normal-sort-image region-column" data-type="region">Region</th>
+		       	<th class="normal-sort-image project-column" data-type="project">Project Name</th>
+		       	<th class="normal-sort-image indicator-column" data-type="production">Production</th>
+		       	<th class="normal-sort-image indicator-column" data-type="hse">HSE</th>
+		       	<th class="normal-sort-image indicator-column" data-type="schedule">Schedule</th>
+		       	<th class="normal-sort-image indicator-column" data-type="pcsb">Cost(PCSB)</th>
+		       	<th class="normal-sort-image indicator-column" data-type="pmu">Cost(PMU)</th>
+			<th class="normal-sort-image indicator-column" data-type="manpower">Manpower</th>
+	       </tr>	      
+     	</thead>
+ 		<tbody>
+     	
+		</tbody>
+	</table>
+	</div>
+  <table id="maintable" class="tablesorter"> 
+    <thead>
+      <tr>
+        <th class="normal-sort-image region-column">Region</th>
+        <th class="normal-sort-image project-column">Project Name</th>
+        <th class="normal-sort-image indicator-column">Production</th>
+        <th class="normal-sort-image indicator-column">HSE</th>
+        <th class="normal-sort-image indicator-column">Schedule</th>
+        <th class="normal-sort-image indicator-column">Cost(PCSB)</th>
+        <th class="normal-sort-image indicator-column">Cost(PMU)</th>
+	<th class="normal-sort-image indicator-column">Manpower</th>
+      </tr>	      
+    </thead>
+    <tbody>
+
+    </tbody>
+  </table>
+
+  <!-- JavaScript plugins (requires jQuery) -->
+  <!-- <script src="scripts/jquery-2.0.1.min.js"></script> -->
+  <script src="scripts/jquery-2.0.1.js"></script>
+    <!--
+    	!!!!!!!!!!!!!!!! The boostrap.js file is edited. 
+    	Changes: added more placement types for popovers
+    -->
+    <script src="scripts/bootstrap-custom.js"></script>
+    <!-- <script src="scripts/bootstrap-custom.min.js"></script> -->
+    
+    <script src="scripts/highcharts.js"></script>
+    <script src="scripts/highcharts-more.js"></script>
+    <script src="scripts/jquery.tablesorter.min.js"></script>
+    <script src="scripts/util.js"></script>
+    <script src="scripts/ETGPortfolioScorecardScript.js"></script>
+	<!-- <script src="scripts/zETGPortfolioScorecardScript_sampleData.js"></script> -->
+
+
+  </body>
+  </html>

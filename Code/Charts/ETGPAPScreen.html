@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title></title>
+  <meta name="viewport" content="user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
+    <link href="styles/bootstrap.css" rel="stylesheet" media="screen">
+    <link href="styles/popover-extra-placements-custom.css" rel="stylesheet" media="screen">
+    <link href="styles/ETGPAPScreenStyle.css" rel="stylesheet" media="screen">
+
+  </head>
+  <body>
+    <div class="title left">
+		<div id="project-name" class="title-div pap-header">Project name</div>
+		<div id="report-period" class="title-div pap-header">Report period</div>
+		<div id="ppms-phase" class="title-div pap-header">PPMS phase</div>
+		<div id="last-update" class="title-div">Last Updated</div>
+	</div>
+	<div id="summary" class="div">
+		<div id="project-details" class="div inside-summary">
+			<table id="project-details-table" class="summary-table">
+				<caption>Project Details</caption>
+				<tbody>
+				</tbody>
+			</table>
+		</div>
+		<div id="pap-status" class="div inside-summary">
+			<table id="pap-status-table" class="summary-table">
+				<caption>PAP Status</caption>
+				<tbody>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div id="pap-table-container" class="div">
+		<table id="pap-main-table" class="petronas">
+		<thead>
+			<th>No.</th>
+			<th>Milestone / Review<br/>Name</th>
+			<th>Recommended<br/>Applicability</th>
+			<th>Applicability</th>
+			<th>Rationale</th>
+			<th>PPMS<br/>Phase</th>
+			<th>Baseline<br/>Date</th>
+			<th>Latest<br/>Baseline<br/>Date</th>
+			<th>Forecast<br/>Date</th>
+			<th>Actual<br/>Date</th>
+			<th>Status</th>
+		</thead>
+		<tbody>
+		</tbody>
+		</table>
+		<div id="legend">
+			<table id="pap-legend-table">
+				<tbody>
+				  <td><img src="images/green.png" alt="Completed & Closed"></td>
+				  <td>Completed & Closed</td>
+				  <td><img src="images/orangeFlag.png"></td>
+				  <td>Conditional & Closed</td>
+				  <td><img src="images/yellow.png"></td>
+				  <td>Completed with Open Action Items</td>
+				  <td><img src="images/04 Blue Binocs.png"></td>
+				  <td>Forcasted</td>
+				  <td><img src="images/red.png"></td>
+				  <td>Overdue</td>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	
+    <!-- JavaScript plugins (requires jQuery) -->
+    <script src="scripts/jquery-2.0.1.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    
+    <!--
+    	!!!!!!!!!!!!!!!! The boostrap.js file is edited. 
+    	Changes: added more placement types for popovers
+    -->
+	
+    <script src="scripts/bootstrap-custom.js"></script>
+    <script src="scripts/highcharts.js"></script>
+	<script src="scripts/highcharts-more.js"></script>
+	<script src="scripts/highcharts-plotband-pattern.js"></script>
+	<script src="scripts/jquery.tablesorter.js"></script>
+	<script src="scripts/util.js"></script>
+	<script src="scripts/ETGPAPScreen.js"></script>
+  </body>
+</html>

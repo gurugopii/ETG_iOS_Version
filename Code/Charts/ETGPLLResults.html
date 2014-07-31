@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>ETGPLLResults</title>
+  <meta name="description" content="">
+  <meta name="author" content="yevgeniy.kim">
+<!--                   <meta name="viewport" content="user-scalable=no">  -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
+  
+   <link href="styles/bootstrap.css" rel="stylesheet" media="screen">
+  <link href="styles/ETGPLL-GeneralStyle.css" rel="stylesheet" media="screen">
+  <link href="styles/ETGPLLResultStyle.css" rel="stylesheet" media="screen">
+</head>
+<body>  
+      <ul id="resultsTopBar" class="nav nav-tabs">
+        <!-- <li><a href="ETGPLLWelcome.html">Home</a></li> -->
+        <li><a id="backButtonForResult">Back</a></li>
+        <li>
+            <form id="searchForm">
+               <input type="email" class="form-control" id="tbSearchBar" placeholder="Search"></input>
+               <div class="hidden-submit"><input type="submit" tabindex="-1"/></div>
+            </form>
+        </li>                    
+        <li class="active" >
+        	<a href="#replicateTab" class="resultsSwitch" data-toggle="tab">Replicate</a>
+        </li>
+        <li>
+        	<a href="#avoidTab" class="resultsSwitch" data-toggle="tab">Avoid</a>
+        </li>
+    </ul>
+    <div id="resultsTabContent" class="tab-content">
+        <div class="tab-pane fade in active" id="replicateTab">
+            <p> <a href="ETGPLLDetail.html"></p>
+        </div>
+        <div class="tab-pane fade" id="avoidTab">
+            <p> <a href="ETGPLLDetail.html"></p>
+        </div>
+    </div>
+
+    
+	<script src="scripts/jquery-2.0.1.js"></script>
+	<script src="scripts/bootstrap-custom.js"></script>
+	<script src="scripts/jquery.tablesorter.js"></script>
+	<script src="scripts/util.js"></script>
+    <script src="scripts/PLL-SampleData.js"></script>
+	<script src="scripts/ETGPLL-util.js"></script>
+    <script src="scripts/ETGPLLResultScript.js"></script>
+  	<script>
+  		
+  	</script>
+</body>
+</html>

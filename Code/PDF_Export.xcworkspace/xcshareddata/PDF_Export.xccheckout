@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>81AF12E2-2120-4EE9-A7B4-C8A737D14201</string>
+	<key>IDESourceControlProjectName</key>
+	<string>PDF_Export</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>2D1D706E-AB9E-46C2-86CA-65B0CAD40CC3</key>
+		<string>https://github.com/gurugopii/ETG_iOS_App.git</string>
+		<key>45DDBCD0-9C83-47FA-88FC-55264926FFD3</key>
+		<string>https://bdc6.ams.accenture.com/gerrit/p/PMIS</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Code/PDF_Export.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>2D1D706E-AB9E-46C2-86CA-65B0CAD40CC3</key>
+		<string>../..</string>
+		<key>45DDBCD0-9C83-47FA-88FC-55264926FFD3</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://bdc6.ams.accenture.com/gerrit/p/PMIS</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>2D1D706E-AB9E-46C2-86CA-65B0CAD40CC3</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>2D1D706E-AB9E-46C2-86CA-65B0CAD40CC3</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ETG</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>45DDBCD0-9C83-47FA-88FC-55264926FFD3</string>
+			<key>IDESourceControlWCCName</key>
+			<string>PMIS</string>
+		</dict>
+	</array>
+</dict>
+</plist>

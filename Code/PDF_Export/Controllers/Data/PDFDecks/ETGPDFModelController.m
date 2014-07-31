@@ -1,0 +1,682 @@
+//
+//  ETGPDFModelController.m
+//  PDF_Export
+//
+//  Created by macmini01.sf.dev on 10/8/13.
+//  Copyright (c) 2013 Accenture. All rights reserved.
+//
+
+#import "ETGPDFModelController.h"
+#import "ETGWebServiceCommonImports.h"
+#import "ETGDecksViewController.h"
+// Models
+#import "ETGDecks.h"
+#import "ETGCategories.h"
+#import "ETGMonths.h"
+// Entities
+#import "ETGPDFCategories.h"
+#import "ETGPDFMonths.h"
+#import "ETGPDFDecks.h"
+#import "ETGPDFSubCategories.h"
+// PDF
+#import "PDFDocumentsDirectory.h"
+#import "PDFCacheDirectory.h"
+#import "PDFCheckFile.h"
+#import "ETGNetworkConnection.h"
+#import "ETGToken.h"
+#import "UICKeyChainStore.h"
+
+@interface ETGPDFModelController ()
+{
+    long long pdfTotalBytesRead;
+    long long pdfTotalBytesExpectedToRead;
+}
+
+@property (nonatomic, strong) ETGWebService* webService;
+@property (nonatomic, strong) RKManagedObjectStore* managedObjectStore;
+@property (nonatomic, strong) RKObjectManager* managedObject;
+@property (nonatomic, strong) NSMutableArray *allCategories;
+@property (nonatomic, strong) ETGAppDelegate *appDelegate;
+@property (nonatomic, strong) AFHTTPClient *afClient;
+@property (nonatomic) NSDateFormatter *dateFormatter;
+
+@end
+
+@implementation ETGPDFModelController
+
+@synthesize webService = _webService;
+@synthesize managedObjectStore = _managedObjectStore;
+@synthesize isDownloadingDecks = _isDownloadingDecks;
+@synthesize isDownloadingCategories = _isDownloadingCategories;
+
++ (instancetype)sharedModel {
+    static id instance;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        instance = [[self alloc] init];
+    });
+    return instance;
+}
+
+-(id)init {
+    self = [super init];
+    if (self) {
+        // Set web service
+        self.webService = [ETGWebService sharedWebService];
+        _appDelegate = [[UIApplication sharedApplication] delegate];
+        [self getCategories];
+        [self createPDFFileDirectory];
+        
+        self.afClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:@"http://server"]];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(getCategoriesServiceData)
+                                                     name:@"callCategories"
+                                                   object:nil];
+        self.isDownloadingDecks = NO;
+        self.isDownloadingCategories = NO;
+        _dateFormatter = [[NSDateFormatter alloc] init];
+        [_dateFormatter setDateFormat:@"yyyyMMdd"];
+    }
+    return self;
+}
+
+/* Creates the PDF Files directory in both the cache and documents directory. */
+-(void) createPDFFileDirectory {
+    
+    NSString *dataPath = [PDFDocumentsDirectory applicationDocumentsPDFDirectory];
+    NSError *error;
+    if (![[NSFileManager defaultManager] fileExistsAtPath:dataPath])
+        [[NSFileManager defaultManager] createDirectoryAtPath:dataPath withIntermediateDirectories:NO attributes:nil error:&error];
+    
+    dataPath = [PDFCacheDirectory applicationCachePDFDirectory];
+    
+    if (![[NSFileManager defaultManager] fileExistsAtPath:dataPath])
+        [[NSFileManager defaultManager] createDirectoryAtPath:dataPath withIntermediateDirectories:NO attributes:nil error:&error];
+    else {
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+        NSString *directory = [PDFCacheDirectory applicationCachePDFDirectory];
+        NSError *error = nil;
+        
+        for (NSString *file in [fileManager contentsOfDirectoryAtPath:directory error:&error]) {
+            
+            NSString *path = [directory stringByAppendingPathComponent:file];
+            BOOL success = [fileManager removeItemAtPath:path error:&error];
+            if (!success || error) {
+                DDLogWarn(@"%@%@", logWarnPrefix,fileDeleteError);
+            }
+        }
+    }
+}
+
+#pragma mark - Web Service
+-(void) getDecksWebServiceData {
+  
+    KeychainItemWrapper* keychain = [[KeychainItemWrapper alloc] initWithIdentifier:@"ETG" accessGroup:nil];
+
+    // Set downloading decks flag to YES
+    self.isDownloadingDecks = YES;
+    // Get Web Service Data for PDF Decks
+    // Create web service with mapping to model
+    ETGDecks* decks = [[ETGDecks alloc] init];
+    if (_appDelegate.isNetworkServerAvailable == YES) {
+        [decks removeNotOffline];
+    }
+    [decks sendRequestWithUserId: [keychain objectForKey:(__bridge id)kSecAttrAccount] andToken:[UICKeyChainStore stringForKey:kETGToken] success:^(void){
+        self.isDownloadingDecks = NO;
+        DDLogWarn(@"%@%@",logWarnPrefix, @"Successfully downloaded decks");
+    } failure: ^(NSError * error) {
+        self.isDownloadingDecks = NO;
+        DDLogWarn(@"%@%@",logWarnPrefix, [NSString stringWithFormat:genericError, error.localizedDescription]);
+    }];
+}
+
+-(void) getCategoriesServiceData{
+  
+    KeychainItemWrapper* keychain = [[KeychainItemWrapper alloc] initWithIdentifier:@"ETG" accessGroup:nil];
+
+    // Set downloading categories flag to YES
+    self.isDownloadingCategories = YES;
+    // Get Web Service Data for PDF Categories
+    // Create web service with mapping to model
+    ETGCategories* categories = [[ETGCategories alloc] init];
+    if (_appDelegate.isNetworkServerAvailable == YES) {
+        [categories removeAll];
+    }
+    [categories sendRequestWithUserId: [keychain objectForKey:(__bridge id)kSecAttrAccount] andToken:[UICKeyChainStore stringForKey:kETGToken] success:^(void){
+        self.isDownloadingCategories = NO;
+        DDLogWarn(@"%@%@",logWarnPrefix, @"Successfully downloaded categories");
+    } failure: ^(NSError * error) {
+        self.isDownloadingCategories = NO;
+        DDLogWarn(@"%@%@", logWarnPrefix,[NSString stringWithFormat:genericError, error.localizedDescription]);
+        NSDictionary *userInfo = [error userInfo];
+        NSString *errorStatus =[NSString stringWithFormat:@"%@",[userInfo objectForKey:@"AFNetworkingOperationFailingURLResponseErrorKey"]];
+        
+        if ([errorStatus rangeOfString:@"Token Expired"].location != NSNotFound) {
+            [self requestNewToken];
+        }
+    }];
+}
+
+
+#pragma mark - Categories
+/* This will fetch the categories from coredata.
+ It will be displayed in the categories table */
+-(void)getCategories {
+    NSArray *categoriesCoreData = [ETGPDFCategories findAllSortedBy:@"categoryId" ascending:YES];
+    _allCategories = [NSMutableArray array];
+    _uniqueCategories = [NSMutableArray array];
+
+    for (NSArray *categoryArray in categoriesCoreData) {
+        
+        [_uniqueCategories addObject:[categoryArray valueForKey:@"categoryName"]];
+
+        if ([[[categoryArray valueForKey:@"subCategory"] valueForKey:@"subCategoryId"] count]) {
+            for (NSArray *subCategory in [categoryArray valueForKey:@"subCategory"]) {
+                NSDictionary *categoriesDict = @{
+                                                 @"categoryId"     : [categoryArray valueForKey:@"categoryId"],
+                                                 @"categoryName"   : [categoryArray valueForKey:@"categoryName"],
+                                                 @"subCategoryId"  : [subCategory valueForKey:@"subCategoryId"],
+                                                 @"subCategoryName": [subCategory valueForKey:@"subCategoryName"]
+                                                 };
+                [_allCategories addObject:categoriesDict];
+            }
+        } else {
+            NSMutableDictionary *categoriesDict = [NSMutableDictionary dictionaryWithDictionary:@{
+                                                   @"categoryId": [categoryArray valueForKey:@"categoryId"],
+                                                   @"categoryName": [categoryArray valueForKey:@"categoryName"],
+                                                   @"subCategoryName"  : @"None"
+                                                   }];
+            
+            [_allCategories addObject:categoriesDict];
+        }
+    }
+    
+    [_uniqueCategories addObject:@"Downloaded Decks"];
+
+    NSMutableDictionary *categoriesDict = [NSMutableDictionary dictionaryWithDictionary:@{
+                                           @"categoryName": @"Downloaded Decks",
+                                           @"subCategoryName"  : @"None"
+                                           }];
+
+    [_allCategories addObject:categoriesDict];
+
+}
+
+/* Find the Sub Category for the specified Category. */
+- (NSArray *) findSubCategoryWithIndexPathSection:(NSInteger)section {
+    
+    NSString *categoryName = [_uniqueCategories objectAtIndex:section];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"categoryName = %@", categoryName];
+    NSArray *subCategories = [_allCategories filteredArrayUsingPredicate:predicate];
+    subCategories = [subCategories valueForKey:@"subCategoryName"];
+    
+    NSSortDescriptor *sd1 = [NSSortDescriptor sortDescriptorWithKey:@"self" ascending:NO];
+    subCategories = [subCategories sortedArrayUsingDescriptors:[NSArray arrayWithObjects:sd1, nil]];
+    
+    return subCategories;
+    
+}
+
+#pragma mark - Months
+
+//This will fetch the list of Months from coredata. It will be displayed in the Months table
+-(NSMutableArray *)getMonths {
+    
+    NSArray *fetchedMonths = [ETGPDFMonths findAllSortedBy:@"month" ascending:NO];
+    NSArray *sortedFechtedMonths = [fetchedMonths sortedArrayUsingComparator:^NSComparisonResult(ETGPDFMonths *obj1, ETGPDFMonths *obj2) {
+        NSDate *date1 = [_dateFormatter dateFromString:obj1.monthId];
+        NSDate *date2 = [_dateFormatter dateFromString:obj2.monthId];
+        return [date1 compare:date2];
+    }];
+    
+    NSMutableArray *sortedMonths = [[NSMutableArray alloc] init];
+    for (NSInteger i = [sortedFechtedMonths count] - 1; i >= 0; i--) {
+        ETGPDFMonths *pdfMonth = [sortedFechtedMonths objectAtIndex:i];
+        [sortedMonths addObject:pdfMonth.month];
+    }
+    
+    return sortedMonths;
+}
+
+
+#pragma mark - Decks
+/* This will fetch all the decks from coredata. */
+-(NSArray *)getDecks{
+    
+    NSFetchRequest *fetchDecksRequest = [[NSFetchRequest alloc] init];
+    fetchDecksRequest = [ETGPDFDecks requestAllSortedBy:@"fileId" ascending:YES];
+    [fetchDecksRequest setResultType:NSDictionaryResultType];
+    NSArray *filteredDecksCoreData = [ETGPDFDecks executeFetchRequest:fetchDecksRequest];
+    return filteredDecksCoreData;
+}
+
+/* This will fetch the first twelve decks from the core data. */
+-(NSArray *)getRecentDecks {
+    
+    NSFetchRequest *fetchDecksRequest = [[NSFetchRequest alloc] init];
+    fetchDecksRequest = [ETGPDFDecks requestAllSortedBy:@"fileId" ascending:NO];
+    [fetchDecksRequest setResultType:NSDictionaryResultType];
+    NSArray *filteredRecentDecksCoreData = [ETGPDFDecks executeFetchRequest:fetchDecksRequest];
+
+    if (filteredRecentDecksCoreData.count > 12) {
+        NSArray *tempArray = [filteredRecentDecksCoreData subarrayWithRange:NSMakeRange(0, 12)];
+        filteredRecentDecksCoreData = [NSArray arrayWithArray:tempArray];
+    }
+    return filteredRecentDecksCoreData;
+}
+
+/* Fetch Decks from coredata based from the Reporting Month. */
+-(NSArray *)findDecksWithReportingMonth:(NSString *)reportingMonth {
+    
+    NSFetchRequest *fetchDecksRequest = [[NSFetchRequest alloc] init];
+//    fetchDecksRequest = [ETGPDFDecks requestAllWhere:@"reportingMonth" isEqualTo:reportingMonth];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"reportingMonth = %@", reportingMonth];
+    fetchDecksRequest = [ETGPDFDecks requestAllSortedBy:@"fileId" ascending:YES withPredicate:predicate];
+    
+    [fetchDecksRequest setResultType:NSDictionaryResultType];
+    NSArray *filteredDecksCoreData = [ETGPDFDecks executeFetchRequest:fetchDecksRequest];
+
+    return filteredDecksCoreData;
+}
+
+/* Fetch Decks from coredata based from the Category and SubCategory. */
+-(NSArray *) findDecksWithCategory: (NSString *)category
+                    andSubCategory: (NSString *)subCategory {
+    
+    NSFetchRequest *fetchDecksRequest = [[NSFetchRequest alloc] init];
+    NSPredicate *predicate;
+    if ([category isEqualToString:subCategory]) {
+        subCategory = @"";
+        if ([category isEqualToString:@"Downloaded Decks"]) {
+            predicate = [NSPredicate predicateWithFormat:@"isOffline = %i", 1];
+        }
+        else
+        {
+            predicate = [NSPredicate predicateWithFormat:@"category = %@", category];
+        }
+    }
+    else{
+        predicate = [NSPredicate predicateWithFormat:@"category = %@ AND subCategory = %@", category, subCategory];
+    }
+    
+    fetchDecksRequest = [ETGPDFDecks requestAllSortedBy:@"fileId" ascending:YES withPredicate:predicate];
+    [fetchDecksRequest setResultType:NSDictionaryResultType];
+    NSArray *filteredDecksCoreData = [ETGPDFDecks executeFetchRequest:fetchDecksRequest];
+    
+    return filteredDecksCoreData;
+}
+
+#pragma mark - PDF Related
+/* Check if PDF File exists in the Cache or Documents Directory and updates the file path accordingly. */
+-(NSString *) checkIfFileExistsWithDecks:(NSArray *)decks andArrayIndex:(int)index {
+    
+    NSString *filePath;
+    filePath = [[PDFDocumentsDirectory applicationDocumentsPDFDirectory] stringByAppendingPathComponent:[[decks objectAtIndex:index] objectForKey:@"fileId"]];
+    if (![PDFCheckFile isPDFExist:filePath]) {
+        filePath = [[PDFCacheDirectory applicationCachePDFDirectory] stringByAppendingPathComponent:[[decks objectAtIndex:index] objectForKey:@"fileId"]];
+    }
+    
+    return filePath;
+}
+
+-(NSString *) getFilePathInDocumentsPDFDirectory:(NSArray *)decks andArrayIndex:(int)index {
+    
+    NSString *filePath;
+    filePath = [[PDFDocumentsDirectory applicationDocumentsPDFDirectory] stringByAppendingPathComponent:[[decks objectAtIndex:index] objectForKey:@"fileId"]];
+    
+    return filePath;
+}
+
+-(NSString *) getFilePathInCacheDirectory:(NSArray *)decks andArrayIndex:(int)index {
+    
+    NSString *filePath;
+    filePath = [[PDFCacheDirectory applicationCachePDFDirectory] stringByAppendingPathComponent:[[decks objectAtIndex:index] objectForKey:@"fileId"]];
+    
+    return filePath;
+}
+
+-(NSString *) getFilePathInCacheTempDirectory:(NSArray *)decks andArrayIndex:(int)index {
+    
+    NSString *filePath;
+    filePath = [[PDFCacheDirectory applicationCachePDFDirectory] stringByAppendingPathComponent:@"temp"];
+    
+    if (![[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
+        [[NSFileManager defaultManager] createDirectoryAtPath:filePath withIntermediateDirectories:NO attributes:nil error:nil];
+    }
+    
+    filePath = [filePath stringByAppendingPathComponent:[[decks objectAtIndex:index] objectForKey:@"fileId"]];
+    
+    return filePath;
+}
+
+-(NSString *) getFilePathForReadInCacheTempDirectory{
+    NSString *filePath;
+    filePath = [[PDFCacheDirectory applicationCachePDFDirectory] stringByAppendingPathComponent:@"tempForRead.pdf"];
+    return filePath;
+}
+
+/* Determines the file destination path to which the file will be sent. */
+-(NSString *) checkDestPathWithOriginPath:(NSString *)originPath {
+    NSString *fileName = [originPath lastPathComponent];
+    originPath = [originPath stringByDeletingLastPathComponent];
+    
+    NSString *destPath;
+    if ([[PDFCacheDirectory applicationCachePDFDirectory] isEqualToString:originPath])
+    {
+        destPath = [[PDFDocumentsDirectory applicationDocumentsPDFDirectory] stringByAppendingPathComponent:fileName];
+    } else {
+        destPath = [[PDFCacheDirectory applicationCachePDFDirectory] stringByAppendingPathComponent:fileName];
+    }
+    return destPath;
+    
+}
+
+-(BOOL) isFileAvailableOffline:(NSString *)filePath {
+
+    filePath = [filePath stringByDeletingLastPathComponent];
+
+    if ([[PDFCacheDirectory applicationCachePDFDirectory] isEqualToString:filePath])
+    {
+        return NO;
+    } else {
+        return YES;
+    }
+    
+}
+
+/* Creates an array of PDF Images with the same number as the Recently Viewed Decks to display in the collection view. */
+-(NSMutableArray *) loadRecentlyViewedImagesThroughRecentDecks:(NSArray *)recentDecks {
+    NSMutableArray *imagesArray = [NSMutableArray array];
+    for (int i = 0; i < recentDecks.count; i++)
+    {
+        //Getting PDF Thumbnail
+        UIImage *thumbnailImage = [UIImage imageNamed:@"pdf_btn"];
+        
+        if (thumbnailImage != nil) {
+        } else {
+            thumbnailImage = [UIImage imageNamed:@"PDFImage"];
+        }
+        
+        [imagesArray addObject:thumbnailImage];
+        
+    }
+    return imagesArray;
+}
+
+/* Download the selected PDF File. If file has already been downloaded, display file from file path. */
+-(void) downloadPdfFileWithIndexPath:(NSIndexPath *)indexPath decksArray:(NSArray *)decks andFilePath:(NSString *)filePath {
+    
+    [_appDelegate performSelector:@selector(startActivityIndicatorSmallGrey) withObject:self afterDelay:0];
+
+//    [[ETGUserDefaultManipulation sharedUserDefaultManipulation] storeShowNoServerConnectionInNSUserDefaults:@"P"];
+    [ETGNetworkConnection checkAvailability];
+
+    NSString *PDFField = [[decks objectAtIndex:indexPath.row]objectForKey:@"fileId"];
+
+        NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+        [params setObject:PDFField forKey:@"inpFileKey"];
+    
+        NSError *error;
+        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:params
+                                                           options:NSJSONWritingPrettyPrinted
+                                                             error:&error];
+    
+    if (_appDelegate.isNetworkServerAvailable) {
+        NSString *strUrl = [NSString stringWithFormat:@"%@%@%@", kBaseURL, kPortfolioService, ETG_DOWNLOAD_MCDECK_PATH];
+        NSMutableURLRequest *request = [CommonMethods urlRequestWithPath:strUrl httpMethod:@"POST"];
+        [request setHTTPBody:jsonData];
+//        [request setTimeoutInterval:15.0];
+
+        pdfTotalBytesRead = -1;
+        pdfTotalBytesExpectedToRead = -1;
+        
+        [self.afClient.operationQueue cancelAllOperations];
+        AFHTTPRequestOperation *operationDownloadPDFDeck = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+        operationDownloadPDFDeck.SSLPinningMode = AFSSLPinningModeCertificate;
+        
+        operationDownloadPDFDeck.outputStream = [NSOutputStream outputStreamToFileAtPath:filePath append:NO];
+        [operationDownloadPDFDeck setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+            //DDLogInfo(@"%@%@", logInfoPrefix, [NSString stringWithFormat:successDownloadLog, filePath]);
+            self.indexPath = indexPath;
+            self.decks = decks;
+            if (pdfTotalBytesRead <=0 || pdfTotalBytesRead < pdfTotalBytesExpectedToRead) {
+                NSLog(@"pdf download error");
+//                [ETGAlert sharedAlert].alertDescription = [NSString stringWithFormat:@"%@%@", pdfFeatureAlert, @"Download failed."];
+                [ETGAlert sharedAlert].alertDescription = [NSString stringWithFormat:@"%@%@", pdfFeatureAlert, @"File Corrupted. Download Failed."];
+                [[ETGAlert sharedAlert] showDownloadDeckAlert];
+                [ETGAlert sharedAlert].deckAlertShown = NO;
+                
+                [_appDelegate performSelector:@selector(stopActivityIndicatorSmall) withObject:self afterDelay:0];
+            }
+            else{
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"PDFFileNotification" object:self];
+            }
+            
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            if (error.code != -999) {//operation cancel error code
+                [ETGAlert sharedAlert].alertDescription = [NSString stringWithFormat:@"%@%@", pdfFeatureAlert, error.localizedDescription];
+                [[ETGAlert sharedAlert] showDownloadDeckAlert];
+                [ETGAlert sharedAlert].deckAlertShown = NO;
+            }
+            
+            [_appDelegate performSelector:@selector(stopActivityIndicatorSmall) withObject:self afterDelay:0];
+        }];
+        
+        [operationDownloadPDFDeck setDownloadProgressBlock:^(NSUInteger bytesRead, long long totalBytesRead, long long totalBytesExpectedToRead) {
+            pdfTotalBytesRead = totalBytesRead;
+            pdfTotalBytesExpectedToRead = totalBytesExpectedToRead;
+//            NSLog(@"%d - %lld - %lld", bytesRead, totalBytesRead, totalBytesExpectedToRead);
+        }];
+        
+        [self.afClient.operationQueue addOperation:operationDownloadPDFDeck];
+//        [operationDownloadPDFDeck start];
+    } else {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Offline" message:serverCannotBeReachedAlert delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+        [alertView show];
+//        [ETGAlert sharedAlert].deckAlertShown = NO;
+//        ETGAlert *timeOut = [ETGAlert sharedAlert];
+//        timeOut.alertDescription = serverCannotBeReachedAlert;
+//        [timeOut showDeckAlert];
+        DDLogWarn(@"%@%@",logWarnPrefix,serverCannotBeReachedWarn);
+    }
+}
+
+- (void)downloadPdfFileWithIndexPath:(NSIndexPath *)indexPath
+                           decksArray:(NSArray *)decks
+                          andFilePath:(NSString *)filePath
+                              success:(void (^)(bool done))success
+                              failure:(void (^)(NSError *error))failure {
+    
+    [_appDelegate performSelector:@selector(startActivityIndicatorSmallGrey) withObject:self afterDelay:0];
+//    [[ETGUserDefaultManipulation sharedUserDefaultManipulation] storeShowNoServerConnectionInNSUserDefaults:@"P"];
+    [ETGNetworkConnection checkAvailability];
+    
+    NSString *PDFField = [[decks objectAtIndex:indexPath.row]objectForKey:@"fileId"];
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+    [params setObject:PDFField forKey:@"inpFileKey"];
+    
+    NSError *error;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:params
+                                                       options:NSJSONWritingPrettyPrinted
+                                                         error:&error];
+    
+    if (_appDelegate.isNetworkServerAvailable) {
+        NSString *strUrl = [NSString stringWithFormat:@"%@%@%@", kBaseURL, kPortfolioService, ETG_DOWNLOAD_MCDECK_PATH];        
+        NSMutableURLRequest *request = [CommonMethods urlRequestWithPath:strUrl httpMethod:@"POST"];
+        [request setHTTPBody:jsonData];
+//        [request setTimeoutInterval:15.0];
+        
+        pdfTotalBytesRead = -1;
+        pdfTotalBytesExpectedToRead = -1;
+        
+        [self.afClient.operationQueue cancelAllOperations];
+        AFHTTPRequestOperation *operationDownloadPDFDeck = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+        operationDownloadPDFDeck.SSLPinningMode = AFSSLPinningModeCertificate;
+        operationDownloadPDFDeck.outputStream = [NSOutputStream outputStreamToFileAtPath:filePath append:NO];
+        
+        [operationDownloadPDFDeck setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+            //DDLogInfo(@"%@%@",logInfoPrefix, [NSString stringWithFormat:successDownloadLog, filePath]);
+            
+            self.indexPath = indexPath;
+            self.decks = decks;
+            
+            if (pdfTotalBytesRead <=0 || pdfTotalBytesRead < pdfTotalBytesExpectedToRead) {
+                NSLog(@"pdf download error");
+                [ETGAlert sharedAlert].alertDescription = [NSString stringWithFormat:@"%@%@", pdfFeatureAlert, @"Download failed."];
+                [[ETGAlert sharedAlert] showDownloadDeckAlert];
+                [ETGAlert sharedAlert].deckAlertShown = NO;
+                
+                [_appDelegate performSelector:@selector(stopActivityIndicatorSmall) withObject:self afterDelay:0];
+                
+                failure(error);
+            }
+            else{
+                success(YES);
+            }
+            
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            failure(error);
+        }];
+        
+        [operationDownloadPDFDeck setDownloadProgressBlock:^(NSUInteger bytesRead, long long totalBytesRead, long long totalBytesExpectedToRead) {
+            pdfTotalBytesRead = totalBytesRead;
+            pdfTotalBytesExpectedToRead = totalBytesExpectedToRead;
+            //            NSLog(@"%d - %lld - %lld", bytesRead, totalBytesRead, totalBytesExpectedToRead);
+        }];
+        
+        [self.afClient.operationQueue addOperation:operationDownloadPDFDeck];
+//        [operationDownloadPDFDeck setQueuePriority:NSOperationQueuePriorityVeryHigh];
+//        [operationDownloadPDFDeck start];
+    } else {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Offline" message:serverCannotBeReachedAlert delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+        [alertView show];
+//        [ETGAlert sharedAlert].deckAlertShown = NO;
+//        ETGAlert *timeOut = [ETGAlert sharedAlert];
+//        timeOut.alertDescription = serverCannotBeReachedAlert;
+//        [timeOut showDeckAlert];
+        DDLogWarn(@"%@%@",logWarnPrefix,serverCannotBeReachedWarn);
+    }
+
+}
+
+/* Display the thumbnail images of the selected PDF File from the Months/Categories selection. */
+-(NSMutableArray *)displaySlidePerDeckWithIndexPath:(NSIndexPath *)indexPath decksArray:(NSArray *)decks andFilePath:(NSString *)filePath {
+    
+    /* Determine the file path if it should be placed in the cache or documents directory. */
+    NSMutableArray *imagesArray = [NSMutableArray array];
+    NSURL *pdfFileUrl = [NSURL fileURLWithPath:filePath];
+    CGPDFDocumentRef pdf = CGPDFDocumentCreateWithURL((CFURLRef)CFBridgingRetain(pdfFileUrl));
+    CGPDFPageRef page;
+    
+    CGRect aRect = CGRectMake(0, 0, 100, 100); // thumbnail size
+    UIGraphicsBeginImageContext(aRect.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    const NSInteger numberOfPages = CGPDFDocumentGetNumberOfPages(pdf);
+    for (NSInteger i = 0; i < numberOfPages; i++) {
+        
+        CGContextSaveGState(context);
+        CGContextTranslateCTM(context, 0.0, aRect.size.height);
+        CGContextScaleCTM(context, 1.0, -1.0);
+        
+        CGContextSetGrayFillColor(context, 1.0, 1.0);
+        CGContextFillRect(context, aRect);
+        
+        // Grab the first PDF page
+        page = CGPDFDocumentGetPage(pdf, i + 1);
+        CGAffineTransform pdfTransform = CGPDFPageGetDrawingTransform(page, kCGPDFMediaBox, aRect, 0, true);
+        // And apply the transform.
+        CGContextConcatCTM(context, pdfTransform);
+        
+        CGContextDrawPDFPage(context, page);
+        
+        // Create the new UIImage from the context
+        UIImage *thumbnailImage = UIGraphicsGetImageFromCurrentImageContext();
+        CGContextRestoreGState(context);
+        
+        [imagesArray addObject:thumbnailImage];
+        
+    }
+    [_appDelegate performSelector:@selector(stopActivityIndicatorSmall) withObject:self afterDelay:0];
+    
+    return imagesArray;
+}
+
+#pragma mark - Offline Decks
+/* Update Decks database so that when users is not connected to the internet, user may still view the PDF Files. */
+-(void) updateDecksForOfflineUseWithFileId:(NSString *)fileId {
+    
+    NSManagedObjectContext* context = [NSManagedObjectContext contextForCurrentThread];
+    NSString* query = [NSString stringWithFormat:@"fileId = %@", fileId];
+    NSPredicate* predicate = [NSPredicate predicateWithFormat:query];
+    ETGPDFDecks* pdfDecks = [ETGPDFDecks findFirstWithPredicate:predicate inContext:context];
+    
+    if (pdfDecks != nil) {
+        if ([pdfDecks.isOffline isEqualToNumber:[NSNumber numberWithBool:1]]) {
+            pdfDecks.isOffline = [NSNumber numberWithBool:0];
+        } else {
+            pdfDecks.isOffline = [NSNumber numberWithBool:1];
+        }
+    }
+    
+    // Save to persistent store
+    NSError* error;
+    [context saveToPersistentStore:&error];
+    if (error) {
+        DDLogWarn(@"%@%@", logWarnPrefix,persistentStoreError);
+        DDLogWarn(@"%@%@", logWarnPrefix,fetchedDataPersistentError);
+    }
+    
+}
+
+-(UIImage *) checkDownloadButtonImageWithDecksArray:(NSArray *)decks andArrayIndex:(int)index {
+    
+    UIImage *imgDownload = [[UIImage alloc] init];
+    
+    if ([[[decks objectAtIndex:index]valueForKey:@"isOffline"] isEqualToNumber:[NSNumber numberWithBool:1]] | [[[decks objectAtIndex:index]valueForKey:@"isOffline"] isEqual:Nil]) {
+        imgDownload = [UIImage imageNamed:@"pdf_download"];
+    } else {
+        imgDownload = [UIImage imageNamed:@"pdf_download_grey"];
+    }
+    return imgDownload;
+    
+}
+
+#pragma mark - Search Bar
+-(NSArray *)searchCategoriesForPDFFilesWithSearchParameters:(NSString *)searchBarText
+{
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"fileName CONTAINS[cd] %@ OR tags CONTAINS[cd] %@", searchBarText, searchBarText];
+    NSFetchRequest *fetchDecksRequest = [[NSFetchRequest alloc] init];
+    fetchDecksRequest = [ETGPDFDecks requestAllSortedBy:@"fileName" ascending:YES withPredicate:predicate];
+    [fetchDecksRequest setResultType:NSDictionaryResultType];
+    NSArray *filteredDecksCoreData = [ETGPDFDecks executeFetchRequest:fetchDecksRequest];
+  
+    return filteredDecksCoreData;
+    
+}
+
+#pragma mark - Gesture Recognizer
+-(NSString *)getCategoryForLongTapGestureWithRecentDecks:(NSArray *)recentDecks andArrayIndex:(int)index {
+    NSString *pdfCategory;
+    if ([[[recentDecks objectAtIndex:index] objectForKey:@"subCategory"] isEqual:@""]) {
+        pdfCategory = [[recentDecks objectAtIndex:index] objectForKey:@"category"];
+    } else {
+        pdfCategory = [[recentDecks objectAtIndex:index] objectForKey:@"subCategory"];
+    }
+    return pdfCategory;
+}
+
+#pragma mark - Token Expired
+
+-(void) requestNewToken {
+    
+    [ETGAlert sharedAlert].alertDescription = expiredTokenAlert;
+    [[ETGAlert sharedAlert] showDeckAlert];
+    _appDelegate = [[UIApplication sharedApplication] delegate];
+    [ETGToken sharedToken].willGetNewMetadata = YES;
+//    [[ETGToken sharedToken] getToken];
+
+}
+
+@end

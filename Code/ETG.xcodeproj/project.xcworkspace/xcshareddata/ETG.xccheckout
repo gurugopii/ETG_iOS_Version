@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>3B6C2570-F24B-46DC-8986-AF494F16A2C8</string>
+	<key>IDESourceControlProjectName</key>
+	<string>ETG</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>AD7D457D-E02D-43FE-B00F-8CE37C0C32DB</key>
+		<string>https://bdc6.ams.accenture.com/gerrit/p/PMIS</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Code/ETG.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>AD7D457D-E02D-43FE-B00F-8CE37C0C32DB</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://bdc6.ams.accenture.com/gerrit/p/PMIS</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>AD7D457D-E02D-43FE-B00F-8CE37C0C32DB</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>AD7D457D-E02D-43FE-B00F-8CE37C0C32DB</string>
+			<key>IDESourceControlWCCName</key>
+			<string>PMIS</string>
+		</dict>
+	</array>
+</dict>
+</plist>

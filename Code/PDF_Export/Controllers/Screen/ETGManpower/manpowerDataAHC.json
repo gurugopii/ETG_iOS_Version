@@ -1,0 +1,33 @@
+{
+    "chartdata": {
+        "title": "Yearly Average Headcount Requirement",
+        "categories": [
+            "2012",
+            "2013",
+            "2014"
+        ],
+        "yLabel": "Headcount",
+        "series": [
+            {
+                "name": "Filled",
+                "data": [
+                    10,
+                    9,
+                    13
+                ]
+            },
+            {
+                "name": "Vacant",
+                "data": [
+                    3,
+                    1,
+                    2
+                ]
+            }
+        ]
+    },
+    "topInformation": {
+        "reportingPeriod": "Jan-2014",
+        "updated": "28 Feb 2014"
+    }
+}

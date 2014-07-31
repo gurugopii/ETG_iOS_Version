@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+            
+        <title>ETG CPS</title>
+        <meta name="description" content="">
+		<meta name="author" content="yevgeniy.kim">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">		
+		<link href="styles/bootstrap.css" rel="stylesheet" media="screen">
+		<link href="styles/popover-extra-placements-custom.min.css" rel="stylesheet" media="screen">
+		<link href="styles/ETGECCRCPSStyle.css" rel="stylesheet" media="screen">      
+
+		<style>
+
+		</style>
+    </head>
+    <body>
+    	<div id="topInformation">Top Information</div>
+ 		<div id="eccrCpsTabContainer">
+			<ul id="cpsTabs" class="nav nav-tabs">
+		        <li class="active" >
+		        	<a href="#apcTab" class="tabSwitch" data-toggle="tab">APC</a>
+		        </li>
+		        <li>
+		        	<a href="#fdpTab" class="tabSwitch" data-toggle="tab">FDP</a>
+		        </li>
+		        <li>
+		        	<a href="#cpbTab" class="tabSwitch" data-toggle="tab">CPB</a>
+		        </li>
+		        <li>
+		        	<a href="#wpbTab" class="tabSwitch" data-toggle="tab">WPB</a>
+		        </li>
+		        <li>
+		        	<a href="#afeTab" class="tabSwitch" data-toggle="tab">AFE</a>
+		        </li>
+		        <li id="governanceLevel">
+		        	Level 1 Governance
+		        </li>
+		    </ul>
+		    <div id="resultsTabContent" class="tab-content">
+				<div id="swiper" class="swipe wrapper">
+				  <div class="swipe-wrap">
+					<div class="tab-pane active" id="apcTab">
+						<p>APC Performance</p>
+						<p> CAPEX </p>
+						<!-- <div class="tableContainer"> -->
+						<table class="table table-striped" id="apcCapexTable"></table>
+						<!-- </div> -->
+						<p> OPEX </p>
+						<table class="table table-striped" id="apcOpexTable"></table>
+					</div>
+					<div class="tab-pane" id="fdpTab">
+						<p> FDP Performance</p>
+						<p> CAPEX </p>
+						<table class="table table-striped" id="fdpCapexTable"></table>
+						<p> OPEX </p>
+						<table class="table table-striped" id="fdpOpexTable"></table>
+					</div>
+					<div class="tab-pane" id="cpbTab">
+						<p> CPB Performance</p>
+						<p> CAPEX </p>
+						<table class="table table-striped" id="cpbCapexTable"></table>
+						<p class="report-title"> OPEX </p>
+						<table class="table table-striped" id="cpbOpexTable"></table>
+					</div>
+					<div class="tab-pane" id="wpbTab">
+						<p> WPB Performance</p>
+						<p> CAPEX </p>
+						<table class="table table-striped" id="wpbCapexTable"></table>
+						<p> OPEX </p>
+						<table class="table table-striped" id="wpbOpexTable"></table>
+					</div>
+					<div class="tab-pane" id="afeTab">
+						<p> AFE Performance</p>
+						<p> CAPEX </p>
+						<table class="table table-striped" id="afeCapexTable"></table>
+						<p> OPEX </p>
+						<table class="table table-striped" id="afeOpexTable"></table>
+					</div>
+				  </div>
+				</div>
+		    </div>
+
+
+		</div>
+ 		<div id="pagination">
+				<em><span class="filled">&#8226;</span></em>&nbsp;
+				<em><span class="empty">&#8226;</span></em>&nbsp;
+				<em><span class="empty">&#8226;</span></em>&nbsp;
+				<em><span class="empty">&#8226;</span></em>&nbsp;
+				<em><span class="empty">&#8226;</span></em>&nbsp;
+			</div> 		        
+        <script src="scripts/jquery-2.0.1.js"></script>
+        <!--
+    	!!!!!!!!!!!!!!!! The boostrap.js file is edited. 
+    	Changes: added more placement types for popovers
+    	-->
+        <script src="scripts/bootstrap-custom.js"></script>
+		<script src="scripts/swipe.js"></script>
+        <script src="scripts/jquery.tablesorter.js"></script>
+        <script src="scripts/util.js"></script>
+        <script src="scripts/ETGECCR-sampledata.js"></script>
+        <script src="scripts/ETGECCRCPSScript.js"></script>
+    </body>
+</html>

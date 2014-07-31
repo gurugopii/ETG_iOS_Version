@@ -1,0 +1,80 @@
+
+#resultsTabContent{
+margin-top: -9px;
+}
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover{
+border-radius: 15px 15px 0 0;
+color: #02AD9D;
+font-weight: bold;
+font-size: 15px;
+}
+
+.nav-tabs > li > a:hover{
+border-radius:15px 15px 0 0;
+color: #333;
+}
+
+#tbSearchBar{
+position: fixed;
+top: 5px;
+/* width: 59%; */
+width: 710px;
+}
+
+table.petronas th:first-child,
+table.petronas td:first-child{
+width: 60px;
+max-width: 60px !important;
+text-align: center;
+}
+table.petronas th:nth-child(n+2):nth-child(-n+4),
+table.petronas td:nth-child(n+2):nth-child(-n+4){
+width: 210px;
+max-width: 210px !important;
+}
+table.petronas th:nth-child(n+5):nth-child(-n+6),
+table.petronas td:nth-child(n+5):nth-child(-n+6){
+width: 130px;
+max-width: 130px !important;
+}
+
+table.petronas th:nth-child(7),
+table.petronas td:nth-child(7){
+width: 50px;
+max-width: 50px !important;
+}
+table.petronas td:nth-child(5){
+text-align: right;
+}
+table.petronas td:nth-child(n+2):nth-child(-n+4){
+text-align: left;
+}
+
+
+table.petronas td:nth-child(n+2):nth-child(-n+3){
+  padding-right: 10px;
+}
+
+table.petronas td:nth-child(2) a{
+color: #02AD9D;
+text-decoration: underline;
+}
+
+#avoidTable th:first-child,
+#avoidTable th:nth-child(7),
+#replicateTable th:nth-child(7),
+#replicateTable th:first-child{
+background-image: none;
+font-size: 16px;
+}
+
+
+.nav-tabs > li:nth-child(2){
+  width: 70%;
+}
+
+.bookmark{
+  margin: 0 auto;
+  /* height: 55px; */
+}

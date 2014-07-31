@@ -1,0 +1,197 @@
+/*swipe*/
+#swiper {
+  width : 100%;
+}
+
+.swipe,
+.swipe-wrap{
+  overflow : hidden;
+  position : relative;
+}
+
+.swipe {
+  visibility : hidden;
+}
+.swipe-wrap {
+  height: 644px;
+}
+
+.swipe-wrap > div {
+  float : left;
+}
+
+.swipe-wrap > div {
+  position : relative;
+}
+
+.wrapper{
+  width: 800px;
+}
+
+/* chart container */
+.chart{
+  width: 1002px;
+  height: 400px;
+  background-color: white;
+  text-align: center;
+  margin-left: 10px;
+  /* margin-bottom: 10px; */
+}
+
+/* charts close button */
+.close-button{
+  position: absolute;
+  left: 990px;
+  top: 4px;
+  z-index: 1;
+}
+	
+/* tooltip for the charts */
+.tooltip-container{
+  position: absolute; 
+  border: 1px solid;
+  z-index: 1; 
+  background: #FFF; 
+  padding: 3px;
+  border-radius: 5px;
+}
+
+#gate-tooltip-container{
+  top: 20px;
+  left: 200px;
+}
+#matrix-tooltip-container{
+  top: 45px;
+  left: 15px;
+}
+.chart-title{
+  text-align: center;
+  background-color: #fff;
+  height: 30px;
+  color: #02AD9D;
+  font-size: 15px;
+}
+
+/* gate chart */
+#gate-chart-container{
+  width: 650px;
+  height: 370px;
+  margin: 0 auto;
+}
+
+/* for matrix pie chart */
+.matrix-chart{
+  width: 496px;
+  float: left;
+}
+
+.breakdown-charts{
+  height: 200px;
+  float: left;
+  width: 248px;
+}
+	
+#matrix-breakdown-container{
+  margin: 0 0 10px 10px;
+  width: 496px;
+  float: left;
+}
+
+#percent-breakdown-container{
+  width: 496px;
+}
+	
+
+/* main matrix chart */
+#matrix-title{
+  position: absolute;
+  z-index: 1;
+  left: 10px;
+  width: 496px;
+}
+
+#matrix-legend{
+  position: absolute;
+  /* top: 379px; */
+  top: 382px;
+  width: 496px;
+  background-color: #fff;
+}
+
+#matrix-chart-main-container{
+  background-color: transparent;
+}
+
+#matrix-table-container{
+  margin-top: -10px;
+}
+
+/* table style */
+.table-div{
+  width: 1002px;
+  float: left;
+  margin-left: 10px;
+}
+
+#gate-table th:nth-child(-n+3),
+#gate-table td:nth-child(-n+3){
+  width: 150px;
+  max-width: 150px;
+}
+
+#gate-table th:nth-child(n+4),
+#gate-table td:nth-child(n+4){
+  width: 276px;
+  max-width: 276px;
+}
+
+#gate-table td:nth-child(-n+3),
+#gate-table td:nth-child(5),
+#matrix-table td:nth-child(-n+3),
+#matrix-table td:nth-child(6){
+  text-align: left;
+}
+#gate-table td:nth-child(4),	
+#matrix-table td:nth-child(n+4):nth-child(-n+5){
+  text-align: right;
+}	
+tbody{
+  height: 205px;
+}
+
+#matrix-table th,
+#matrix-table td{
+  width: 167px;
+  max-width: 167px;
+}
+	
+/* nav icons */
+#pagination{
+  text-align: center;
+}
+
+#pagination span{
+  font-size: 25px;
+  position: relative;
+  top: -4px;
+}
+
+/* active indicator */
+.filled {
+  color: #333333
+}
+
+/* inactive indicator */
+.empty {
+  color: #B0B0B0;
+}
+
+#pagination em{
+  font-style: normal;
+}
+
+.project
+{
+    text-decoration: underline;
+    color: #02ad9d;
+}

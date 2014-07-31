@@ -1,0 +1,235 @@
+//
+//  Constants.h
+//  PDF_Export
+//
+//  Created by Mendoza, Christine D. on 9/11/13.
+//  Copyright (c) 2013 Accenture. All rights reserved.
+//
+
+// Petronas Base URL
+//#define kBaseURL @"http://10.1.36.250:9090" //dev server
+<<<<<<< HEAD
+#define kBaseURL @"https://pww.pcsb-elevate-test.petronas.com.my:9088/ElevateToGoWebService" //test server
+//#define kBaseURL @"http://10.14.64.228:9094" //Backend team dev server
+//#define kBaseURL @"https://10.14.64.228:888" //HTTPS web service on test server
+//#define kBaseURL @"http://pcsb-elevatetogo-test.petronas.com.my:8089" // Future web service on test server
+#define kPortfolioService @"/PortfolioPerformance.svc"
+#define kProjectService @"/ProjectPerformanceService.svc"
+#define kPllService @"/Pll.svc"
+#define kMapService @"/MapsService.svc"
+#define kMasterService @"/Master.svc"
+=======
+//#define kBaseURL @"http://10.14.64.228:9094" //Backend team dev server
+//#define kBaseURL @"https://10.14.64.228:888" //HTTPS web service on test server
+//#define kBaseURL @"http://pcsb-elevatetogo-test.petronas.com.my:8089" // Future web service on test server
+
+>>>>>>> origin/master
+//#define kPortfolioService @"/ElevatetoGoWebService/PortfolioPerformanceService.svc" //Backend Team dev web services
+//#define kProjectService @"/ElevatetoGoWebService/ProjectPerformanceService.svc" //Backend Team dev web services
+
+//#define kBaseURL @"http://10.14.64.228:9090" //test server
+//#define kPortfolioService @"/PortfolioPerformanceService.svc"
+//#define kProjectService @"/ProjectPerformanceService.svc"
+
+#define kBaseURL @"https://pcsb-elevatetogo-test.petronas.com.my:8088"
+#define kPortfolioService @"/ElevateToGoWebService/PortfolioPerformanceService.svc"
+#define kProjectService @"/ElevateToGoWebService/ProjectPerformanceService.svc"
+
+//NEW Web methods
+#define kAuthenticateEtgUser @"/AuthenticateEtgUser"
+#define kGetETGDashboard @"/ETGDashboard"
+#define kBaseFilters @"/ETGBaseFilters"
+#define kWelcomeImages @"/WelcomeScreen"
+#define ETG_PORTFOLIO_APC_PATH @"/PortDashAPC"
+#define ETG_PORTFOLIO_CPB_PATH @"/PortDashCPB"
+#define ETG_PORTFOLIO_HSE_PATH @"/PortDashHSE"
+#define ETG_PORTFOLIO_HYDROCARBON_PATH @"/PortDashFirstHydrocarbon"
+#define ETG_PORTFOLIO_PRODUCTIONRTBD_PATH @"/PortDashProductionRTBD"
+#define ETG_PORTFOLIO_WPB_PATH @"/PortDashWPBABRGovernance"
+#define ETG_DOWNLOAD_MCDECK_PATH @"/DownloadMCDeck"
+#define ETG_MCDECK_METADATA_PATH @"/MCDeckMetadata"
+#define ETG_BASIC_FILLERS_PATH @"/ETGBasicFillers"
+#define ETG_PROJECT_PATH @"/AllProjectReports"
+#define ETG_PLL_LESSONS_COUNT @"/PLLLessonsCount"
+#define ETG_PLL_LESSON @"/PLLLesson"
+#define ETG_PLL_SEARCH_AND_FILTER @"/PLLSearchandFilter"
+#define ETG_PLL_BASE_FILTERS @"/PLLBaseFilters"
+#define ETG_MAP_PGD_PEM @"/MapsPGDandPEM"
+#define ETG_MAP_KEY_MILESTONE_BATCH @"/KeyMilestoneBatch"
+#define ETG_MASTER_ALL_MASTER_DATA @"/AllMasterData"
+
+//Input Keys
+#define kInputReportingMonth @"inpReportingMonth"
+// Project
+#define kInputPllSearchString @"inpSearchString"
+#define kInputPllCountryKey @"inpCountryKey"
+#define kInputPllRegionKey @"inpRegionKey"
+#define kInputPllClusterKey @"inpClusterKey"
+#define kInputPllProjectTypeKey @"inpProjectTypeKey"
+#define kInputPllProjectNatureKey @"inpProjectNatureKey"
+#define kInputPllComplexityKey @"inpComplexityKey"
+#define kInputPllProjectKey @"inpProjectKey"
+// MAP
+#define kInputPageSize @"inpPageSize"
+#define kInputPageNumber @"inpPageNumber"
+// Lesson learnt
+#define kInputProjectLessonDetailKey @"inpProjectLessonDetailKey"
+#define kInputPllReviewItemKey @"inpReviewItemKey"
+#define kInputPllProjectLessonImpactKey @"inpProjectLessonImpactKey"
+#define kInputPllRiskCategoryKey @"inpRiskCategoryKey"
+#define kInputPllProjectLessonRatingKey @"inpProjectLessonRatingKey"
+#define kInputPllAreaKey @"inpAreaKey"
+#define kInputPllDisciplineKey @"inpDisciplineKey"
+#define kInputPllLessonValueKey @"inpLessonValueKey"
+#define kInputPllActivityKey @"inpActivityKey"
+
+#pragma mark - Constant Alert Messages
+// Error Constant
+#define coreDataToJSONError @"Failed to convert core data to JSON"
+#define fetchError @"Fetch error: %@"
+#define serializationError @"Serialization error: %@"
+#define persistentStoreError @"Error in saving to persistent store"
+#define webServiceFetchError @"Error in web service, trying to fetch cached data..."
+#define fetchedDataPersistentError @"Fetched data will not be persistent"
+#define saveCoreDataError @"Unable to save changes to core data"
+#define updateCoreDataError @"Changes to core data was not saved"
+#define fetchProjectError @"Fetch Project error: %@"
+#define connectionFailedError @"Connection failed: %@"
+#define fileDeleteError @"File deletion failed."
+#define genericError @"ERROR: %@"
+#define requestFailedError @"Request Failed with Error: %@, %@"
+#define saveEntityError @"Could not save entity: %@"
+#define gotError @"Got an error: %@"
+#define noDataFoundError @"No Data found."
+#define pdfFeatureError @"Library: %@"
+
+// Warn Constant
+#define incorrectDataType @"Web service passed incorrect data type for variable"
+
+
+
+// Info Constant
+#define etgLaunchLog @"ElevateToGo did finish launch."
+#define filePathLog @"FilePath: %@"
+#define tokenLog @"Token: %@"
+#define successDownloadLog @"Successfully downloaded file to %@"
+#define jsonLog @"JSONSTRING: %@"
+#define showSignLog @"Show sign in screen"
+
+// Prefix Constant
+#define apcPrefix @"APC"
+#define cpbPrefix @"CPB"
+#define hsePrefix @"HSE"
+#define hcPrefix @"Hydrocarbon"
+#define rtbdPrefix @"Production RTBD"
+#define wpbPrefix @"WPB"
+#define logInfoPrefix @"[INFO] "
+#define logWarnPrefix @"[WARN] "
+#define logErrorPrefix @"[ERROR] "
+
+// Alert Constant
+#define scoreCardNoDataAlert @"Scorecard: No data found."
+#define portfolioNoDataAlert @"Portfolio: There are items which don't have available data."
+#define projectNoDataAlert @"Project: There are items which don't have available data."
+#define noTokenAlert @"Unable to get token. There's no internet connection available or the server is down."
+#define pdfFeatureAlert  @"Library: "
+#define deckOfflineAvailableAlert @"Deck indicated is available offline."
+#define deckOfflineNotAvailableAlert @"Deck indicated is not available offline."
+#define expiredTokenAlert @"Token has expired. Requesting new token."
+#define portfolioAlert @"Porfolio: %@"
+#define chartNoAvailableDataAlert @"There are charts which don't have available data."
+#define itemNoAvailableDataAlert @"There are items which don't have available data."
+#define scoreCardAlert @"Scorecard: %@"
+#define projectAlert @"Project: %@"
+#define keyHighlightsAlert @"Key Highlights: "
+#define projectBackgroundAlert @"Project Background: "
+
+//Left menu
+#define kLeftViewController @"LeftViewController"
+#define kPortfolioViewController @"PortfolioViewController"
+#define kProjectViewController @"ProjectViewController"
+#define kMAPViewController @"MAPViewController"
+#define kPLLViewController @"PLLViewController"
+#define kCostControlViewController @"CostControlViewController"
+#define kManpowerViewController @"ManpowerViewController"
+#define kLibraryViewController @"LibraryViewController"
+#define kHomeViewController @"HomeViewController"
+#define kHelpViewController @"HelpViewController"
+#define kLoginViewController @"LoginViewController"
+
+//Color
+<<<<<<< HEAD
+#define kPetronasGreenColor [UIColor colorWithRed:0/255.0 green:174/255.0 blue:154/255.0 alpha:1.0]
+#define kFilterSubSectionColor [UIColor colorWithRed:225/255.0 green:255/255.0 blue:247/255.0 alpha:1.0]
+=======
+#define kPetronasGreenColor [UIColor colorWithRed:2/255.0 green:174/255.0 blue:155/255.0 alpha:1.0]
+>>>>>>> origin/master
+#define kBottomToolbarColor [UIColor colorWithRed:0.9725 green:0.9725 blue:0.9725 alpha:1.0]
+
+//Default filter values
+#define kDefaultOperatorshipKey @1  //Operatorship = COB (Malaysia)
+#define kDefaultProjectPhaseKey @1  //Phase = Execution
+#define kDefaultProjectStatusKey @1 //Project status = Open
+#define kDefaultBudgetHolderKey @1  //Budget holder = Project & Engineering
+//Reporting Month:  latest
+//Region:           Select all
+//Project:          Select all
+//Baseline type:    latest
+//Revision No.:     latest
+
+#define kSelectedReportingMonth @"kSelectedReportingMonth"
+#define kSelectedOperatorship @"kSelectedOperatorship"
+#define kSelectedPhase @"kSelectedPhase"
+#define kSelectedProjects @"kSelectedProjects"
+#define kSelectedBudgetHolder @"kSelectedBudgetHolder"
+#define kSelectedKeyMilestone @"kSelectedKeyMilestone"
+#define kSelectedSpeeds @"kSelectedSpeed"
+#define kSelectedDurations @"kSelectedDurations"
+
+//UAC left menu module keys
+#define kPortfolioModuleKeys  @[@2,@1006]
+#define kProjectModuleKeys    @[@1, @1007]
+#define kMapModuleKeys        @[@3]
+#define kPllModuleKeys        @[@4]
+#define kCostModuleKeys       @[@5]
+#define kResourcesModuleKeys  @[@6]
+#define kLibraryModuleKeys    @[@1041]
+
+//Future implementation - handle the popup/detailed tables keys and logic later for Portfolio and Project
+
+//UAC Portfolio module report keys
+#define kHydrocarbonReportKeys                      @[@1016,@1035]
+#define kProductionRtbdReportPortfolioModuleKeys    @[@1017,@1036]
+#define kWpbReportKeys                              @[@1018]
+#define kHseReportPortfolioModuleKeys               @[@1019,@1037]
+#define kCostPerfReportKeys                         @[@1020,@1038] //Cost Performance refers to CPB and APC reports
+
+//UAC Project module report keys
+#define kKeyMilestoneReportKeys                     @[@1108,@1029]
+#define kScheduleSCurveReportKeys                   @[@1009,@1030]
+#define kbudgetReportKeys                           @[@1010]
+#define kAfeReportKeys                              @[@1011]
+#define kProductionRtbdReportProjectModuleKeys      @[@1012,@1031]
+#define kRiskOpportunityReportKeys                  @[@1013,@1032]
+#define kHseReportProjectModuleKeys                 @[@1014,@1033]
+#define kPpmsReportKeys                             @[@1015,@1034]
+
+//UAC Map module report keys
+
+
+//Notification names
+#define kDownloadFilterDataForGivenReportingMonthCompleted @"kDownloadFilterDataForGivenReportingMonthCompleted"
+#define kDownloadFilterDataForGivenReportingMonthFailed @"kDownloadFilterDataForGivenReportingMonthFailed"
+#define kDownloadMapFilterDataForGivenReportingMonthCompleted @"kDownloadMapFilterDataForGivenReportingMonthCompleted"
+#define kDownloadMapFilterDataForGivenReportingMonthFailed @"kDownloadMapFilterDataForGivenReportingMonthFailed"
+#define kDownloadFilterDataForPllCompleted @"kDownloadFilterDataForPllCompleted"
+#define kDownloadFilterDataForMapCompleted @"kDownloadFilterDataForMapCompleted"
+#define kDownloadFilterDataForPllFailed @"kDownloadFilterDataForPllFailed"
+#define kDownloadFilterDataForMapFailed @"kDownloadFilterDataForMapFailed"
+#define kDownloadProjectCompleted @"kDownloadProjectCompleted"
+#define kDownloadFilterDataForGivenReportingMonthNoError @"kDownloadFilterDataForGivenReportingMonthNoError"
+//KeyChain
+#define kETGToken @"kETGToken"
+#define kETGUsername @"kETGUsername"
+#define kETGPassword @"kETGPassword"
+

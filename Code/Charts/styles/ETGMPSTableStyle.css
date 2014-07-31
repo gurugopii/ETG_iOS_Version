@@ -1,0 +1,58 @@
+#MPStable th,
+#MPStable td{
+  width: 246px;
+  max-width: 246px;
+}
+
+#MPStable thead tr,
+#MPStable thead th{
+    height: 24px;
+}
+
+#MPStable tbody{
+    height:200px;
+}
+
+#MPStable .region-column{
+    width: 100px;
+    max-width: 100px;
+    min-width: 100px
+}
+#MPStable .project-column{
+    max-width: 200px;
+    min-width: 160px
+}
+#MPStable .status-column{
+    width: 70px;
+    max-width: 70px;
+    min-width: 70px
+}
+
+#MPStable .period-column{
+    width: 204px;
+    max-width: 204px;
+    min-width: 204px
+}
+#MPStable .filled-column{
+    width: 260px;
+    max-width: 260px;
+    min-width: 260px
+}
+#MPStable .vacant-column{
+    width: 260px;
+    max-width: 260px;
+    min-width: 260px
+}
+#MPStable .total-column{
+    width: 260px;
+    max-width: 260px;
+    min-width: 260px
+}
+
+#MPStable .span-odd{
+    background-color: #FFF;
+}
+
+#MPStable .span-even{
+    background-color: #F0F0F0;
+}

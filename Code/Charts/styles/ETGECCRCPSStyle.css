@@ -1,0 +1,445 @@
+@font-face{
+			  font-family: 'Museo Sans 300';
+			  src: url('font/MuseoSans_300.otf');
+			}		
+		
+
+			.popover{
+			  max-width: 800px;
+			}
+			
+			.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus{
+  border-color: #02ad9d;
+}
+
+.tab-content p:first-child{
+  text-align: center;
+  font-weight: bold;
+  font-size: 17px;
+  position: relative;
+  top: 10px;
+  color: #02ad9d;
+}
+
+/* top information */
+#topInformation p{
+  float: left;
+  width: 25%;
+  height: 30px;
+  padding: 5px 0 5px 0;
+  margin-bottom: 0;
+  /* height: 30px; */
+}
+
+#topInformation p:nth-child(3),
+#topInformation p:nth-child(4){
+  text-align: center;
+}
+#update{
+  text-align: right;
+}
+/*nav tabs css*/
+			
+.nav-tabs > li.active > a, 
+.nav-tabs > li.active > a:hover, 
+.nav-tabs > li.active > a:focus,
+.nav-tabs{
+  border-color: #02ad9d;
+  color: #02ad9d;
+}
+			
+.nav-tabs > li > a{
+  color: #333;
+}
+
+.nav-tabs > li.active > a{
+  color: #02ad9d;
+  font-weight: bold;
+}
+
+.nav > li > a:hover, 
+.nav > li > a:focus{
+  background-color: transparent;
+  border-color: transparent;
+}
+
+a:hover, a:focus{
+  text-decoration: none;
+}
+
+#governanceLevel{
+  color: orange;
+  float: right;
+  padding-top: 10px;
+}
+/* tables */
+.table tbody + tbody{
+  border: none;
+}
+tr:hover{
+  background-color: #CDFFEE !important;
+}
+thead tr th{
+  background-color: #02ad9d;
+  color: #fff;
+  text-align: center;
+}
+
+.expandRows{
+  color: #02ad9d;
+  font-size: 20px;
+}
+
+
+.table tbody tr:last-child{
+  border-top: 2px solid #000;
+}
+
+body{
+  width: 1024px;
+  padding: 0 10px 0 10px;
+  color: #000;
+  height: 704px;
+  overflow: hidden;
+  font-family: 'Museo Sans 300';
+}
+			
+.odd{
+  background: #fff;  
+}
+
+.even{
+  background: #f0f0f0;  
+}
+
+/* indicators */
+/* active indicator */
+.filled {
+  color: #333333
+}
+
+/* inactive indicator */
+.empty {
+  color: #B0B0B0;
+}
+
+#pagination em{
+  font-style: normal;
+}
+
+#pagination{
+  width: 1004px;
+  text-align: center;
+  font-size: 25px;
+}
+
+#apcCapexTable tr:even{
+  background: red !important;
+}
+
+.tableContainer{
+  height: 240px;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
+thead{
+  position: -webkit-sticky;
+}
+
+.tab-content{
+  text-align: center;
+  /* overflow-y:scroll; */
+  /* max-height: 585px; */
+  height: 585px;
+  -webkit-overflow-scrolling: touch;
+}
+
+table td:nth-child(2){
+  text-align: left;
+}
+
+#apcTab td:nth-child(n+3):nth-child(-n+8),
+#cpbTab td:nth-child(n+3):nth-child(-n+8),
+#wpbTab td:nth-child(n+3):nth-child(-n+9),
+#afeTab td:nth-child(n+3):nth-child(-n+6),
+#afeTab td:last-child,
+#fdpTab td:nth-child(n+3):nth-child(-n+7){
+  text-align: right;
+  padding-right: 12px;
+}
+
+.tab-content p:nth-child(n+2):nth-child(-n+4){
+  text-align: left;
+  font-weight: bold;
+}
+
+tr.even td {
+    background-color: green;
+}
+tr.odd td {
+    background-color: yellow;
+}
+/* popover styles */
+
+.popover{
+background-color: #02ad9d;
+padding: 5px;
+border: none;
+}
+
+.popover.topLeft .arrow,
+.popover.bottomLeft .arrow{
+  left: 8.5%
+}
+.popover.topLeft .arrow,
+.popover.topLeft .arrow:after{
+  border-top-color: #02ad9d;
+}
+.popover.bottomLeft .arrow,
+.popover.bottomLeft .arrow:after{
+  border-bottom-color: #02ad9d;
+}
+
+.popover-content{
+  background-color: #fff;
+  border-radius: 6px;
+}
+
+.justification div:first-child{
+  text-align: center;
+  color: #02ad9d;
+  font-weight: bold;
+}
+.justification p{
+  margin-bottom: 2px
+}
+.justification div:nth-child(n+2):nth-child(-n+3) p{
+  display: table-cell;
+}
+
+.justification div:nth-child(n+2):nth-child(-n+3) p:first-child{
+  width: 100px;
+}
+.justification div:nth-child(n+2):nth-child(-n+3) p:nth-child(3){
+  padding-left: 10px;
+  width: auto;
+}
+.justification div:nth-child(n+2):nth-child(-n+3) p:nth-child(n+1):nth-child(-n+2){
+  color: orange;
+}
+
+.justification div:nth-child(n+2):nth-child(-n+3) p:nth-child(n+1):nth-child(-n+2),
+.justification div:nth-child(4) p{
+  font-weight: bold;
+}
+
+.justification div:nth-child(4) p{
+  margin-bottom: 0px;
+  margin-top: 20px;
+}
+
+/*
+#resultsTabContent{
+  height:578px;
+  overflow: scroll;
+  -webkit-overflow-scroll: touch;
+}
+*/
+/*
+.table thead{
+display: block;
+}
+.table tbody{
+  border-top: none;
+  display: block;
+  overflow-y: scroll;
+  max-height: 150px;
+}
+*/
+
+img{
+  max-height: 30px;
+  max-width: 30px;
+}
+
+.table thead > tr > th, 
+.table tbody > tr > th, 
+.table tfoot > tr > th, 
+.table thead > tr > td, 
+.table tbody > tr > td, 
+.table tfoot > tr > td{
+  vertical-align: middle;
+}
+
+
+#afeCapexTable tbody > tr > td.wbs,
+#afeOpexTable tbody > tr > td.wbs,
+#wpbCapexTable tbody > tr > td.structure,
+#wpbOpexTable tbody > tr > td.structure,
+#cpbCapexTable tbody > tr > td.facility,
+#cpbOpexTable tbody > tr > td.facility,
+#apcCapexTable tbody > tr > td.facility,
+#fdpCapexTable tbody > tr > td.facility,
+#fdpOpexTable tbody > tr > td.facility,
+#apcOpexTable tbody > tr > td.facility{
+  padding-left: 25px;
+}
+
+#wpbCapexTable tbody > tr > td.activity,
+#wpbOpexTable tbody > tr > td.activity,
+#cpbCapexTable tbody > tr > td.structure,
+#cpbOpexTable tbody > tr > td.structure,
+#fdpCapexTable tbody > tr > td.structure,
+#fdpOpexTable tbody > tr > td.structure,
+#apcOpexTable tbody > tr > td.structure,
+#apcCapexTable tbody > tr > td.structure{
+  padding-left: 50px;
+}
+
+#cpbCapexTable tbody > tr > td.costItem,
+#cpbOpexTable tbody > tr > td.costItem,
+#fdpCapexTable tbody > tr > td.costItem,
+#fdpOpexTable tbody > tr > td.costItem,
+#apcOpexTable tbody > tr > td.costItem,
+#apcCapexTable tbody > tr > td.costItem{
+  padding-left: 75px;
+}
+
+/* swiper */
+#swiper {
+  width : 100%;
+}
+
+.swipe,
+.swipe-wrap{
+  overflow : hidden;
+  position : relative;
+}
+
+.swipe {
+  visibility : hidden;
+}
+.swipe-wrap {
+  height: 585px;
+}
+
+.swipe-wrap > div {
+  float : left;
+}
+
+.swipe-wrap > div {
+  position : relative;
+  padding: 0 5px;
+}
+
+.tapForPopover{
+  text-decoration: underline;
+  color: #02ad9d;
+}
+
+a{
+  color: #02ad9d;
+}
+
+.table-striped > tbody > tr:nth-child(odd) > td, 
+.table-striped > tbody > tr:nth-child(odd) > th{
+  background-color: transparent;
+}
+
+.table-striped > tbody > tr:nth-child(odd){
+  background-color: #fff;
+}
+
+.table-striped > tbody > tr:nth-child(even){
+  background-color: #f0f0f0;
+}
+
+.table tbody{
+  height: 200px;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
+.table thead,
+.table tbody{
+  display: block;
+}
+
+.table td:first-child,
+.table th:first-child{
+  width: 50px;
+}
+
+.table td:nth-child(2),
+.table th:nth-child(2){
+  width: 250px;
+}
+/* #apcTab .table td:nth-child(3),
+#apcTab .table th:nth-child(3){
+  width: 102px;
+} */
+
+#apcTab .table td:nth-child(n+3):nth-child(-n+4),
+#apcTab .table th:nth-child(n+3):nth-child(-n+4){
+  width: 102px;
+}
+#apcTab .table td:nth-child(n+5):nth-child(-n+8),
+#apcTab .table th:nth-child(n+5):nth-child(-n+8){
+  width: 100px;
+}
+
+#apcTab .table td:nth-child(n+9):nth-child(-n+10),
+#apcTab .table th:nth-child(n+9):nth-child(-n+10){
+  width: 50px;
+}
+
+#fdpTab .table td:nth-child(n+5):nth-child(-n+6),
+#fdpTab .table th:nth-child(n+5):nth-child(-n+6){
+  width: 120px;
+}
+
+#fdpTab .table td:nth-child(n+7):nth-child(-n+8),
+#fdpTab .table th:nth-child(n+7):nth-child(-n+8),
+#fdpTab .table td:nth-child(n+3):nth-child(-n+4),
+#fdpTab .table th:nth-child(n+3):nth-child(-n+4){
+  width: 116px;
+}
+
+#wpbTab .table td:nth-child(n+3):nth-child(-n+10),
+#wpbTab .table th:nth-child(n+3):nth-child(-n+10),
+#cpbTab .table td:nth-child(n+3):nth-child(-n+10),
+#cpbTab .table th:nth-child(n+3):nth-child(-n+10){
+  width: 88px;
+}
+
+
+#afeTab .table td:nth-child(3),
+#afeTab .table th:nth-child(3){
+  width: 119px;
+}
+#afeTab .table td:nth-child(n+4):nth-child(-n+8),
+#afeTab .table th:nth-child(n+4):nth-child(-n+8){
+  width: 117px;
+}
+
+#projectName{
+  position: absolute;
+  top: 50px;
+  width: 1004px;
+  text-align: center;
+}
+
+.table thead > tr > th, 
+.table tbody > tr > th, 
+.table tfoot > tr > th{
+padding: 4px;
+
+}
+
+#innerPopoverContent{
+  width: 500px;
+  height: 250px;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+}

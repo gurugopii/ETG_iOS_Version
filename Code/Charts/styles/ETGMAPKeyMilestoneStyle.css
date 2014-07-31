@@ -1,0 +1,99 @@
+th, td{
+  word-wrap: break-word;
+}
+
+body{
+  width: 1000px;
+  height: 680px;
+  background-color: #fff;
+}
+
+th{
+  text-align: center;
+}
+
+#projectName{
+  width: 1000px;
+  background: #FFF;
+  padding: 5px 0 0 10px;
+  color: #fabb00;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+#keyMilestoneMainContainer{
+  background: #FFF;
+  width: 1000px;
+  height: 400px;
+}
+
+#keymilestoneTable{
+  width: 1000px;
+}
+
+#keymilestoneTable tbody{
+  height: 180px;
+}
+
+#keymilestoneTable th,#keymilestoneTable  td{
+  width: 250px;
+  max-width: 250px;
+}
+
+.milestone-chart-div, #milestone-left-container{
+  float: left;
+}
+
+#keyMilestoneChart{
+  width: 640px;
+  height: 400px;
+}
+
+#hydro-container{
+  width: 340px;
+  margin-top: 0px;
+  height: 200px;
+  padding-left: 10px;
+}
+
+#milestone-left-container p{
+  text-align: left;
+  padding: 15px 0 0 10px;
+}
+
+#milestoneMiniTable{
+  width: 320px;
+  height: 100px;
+  margin: 0;
+}
+
+#milestoneMiniTable th,
+#milestoneMiniTable td{
+  padding: 5px 8px;
+}
+
+#milestoneMiniTable tbody{
+  max-height: 200px;
+}
+
+#milestoneMiniTable th{
+  background-color: #CDFFEE;
+  color: #000;
+}
+
+#keymilestoneTable td:nth-child(-n+3),
+#milestoneMiniTable td{
+  text-align: left;
+}
+
+#keymilestoneTable th:first-child{
+  background-image: none;
+}
+
+#milestoneMiniTable th,
+#milestoneMiniTable td{
+  width: 100px;
+  max-width: 100px;
+  border: 1px solid #FFF;
+  height: 44px;
+}

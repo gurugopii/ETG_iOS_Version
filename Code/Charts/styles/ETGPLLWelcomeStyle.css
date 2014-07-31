@@ -1,0 +1,150 @@
+.navbar-fixed-bottom{
+   top: 644px;
+}
+
+.nav-tabs > li, .nav-pills > li {
+float:none;
+display:inline-block;
+}
+.nav-tabs, .nav-pills {
+text-align:center;
+}
+
+.nav-pills > li + li{
+  margin-left: -1px;
+}
+
+/*Added styles as per mock up*/
+a{
+color: #02AD9D;
+text-decoration: none;
+}
+
+a:hover{
+text-decoration: none;
+color: #02AD9D;
+}
+
+.nav-tabs > li, .nav-pills > li {
+width: 180px;
+
+}
+
+.nav-tabs > li:first-child, .nav-pills > li:first-child{
+margin-right: -5px;
+}
+
+.nav-pills > li > a{
+padding: 2px 0 2px 0;
+font-size: 16px;
+}
+
+/*active selection for tab*/
+.nav-pills > li.active > a,
+.nav-pills > li.active > a:hover,
+.nav-pills > li.active > a:focus {
+color: #fff;
+background-color: #02AD9D;
+}
+
+.nav-pills > li > a,
+.nav-pills > li > a:hover,
+.nav-pills > li > a:focus {
+color: #02AD9D;
+background-color: #fff;
+border: 1px solid #02AD9D;
+}
+
+/*non-active hover tab*/
+
+.nav > li > a:hover,
+.nav > li > a:focus {
+text-decoration: none;
+background-color: #fff;
+}
+
+.nav-pills > li:first-child > a {
+border-radius: 5px 0 0 5px;
+}
+.nav-pills > li:nth-child(2) > a {
+border-radius: 0 5px 5px 0;
+}
+
+.nav{
+  margin-top: 10px ;
+}
+
+#pllWelcomeContainer{
+  margin-top: 15%;
+  text-align: center;
+  transition: margin-top 1s;
+  -webkit-transition: margin-top 1s;
+}
+
+#imgLogo{
+max-width: 80px;
+max-height: 80px;
+}
+
+h1{
+color: #02AD9D;
+}
+
+#tbSearchBar{
+border-radius: 4px;
+width: 70%;
+margin: 0 auto;
+}
+
+#backButtonContainer{
+position: absolute;
+top: 15px;
+left: 20px;
+display: none;
+color: #333;
+}
+
+th:first-child,
+td:first-child{
+/*width: 50%;*/
+width:501px;
+max-width:501px;
+
+}
+
+td:first-child{
+text-align: left;
+text-decoration: underline;
+}
+
+th, td{
+width: 25%;
+font-weight: normal;
+text-align: center;
+padding: 2px 15px;
+}
+
+tbody tr:first-child td:first-child{
+font-size: 35px;
+}
+tbody tr:nth-child(2) td:first-child{
+font-size: 30px;
+}
+tbody tr:nth-child(3) td:first-child{
+font-size: 25px;
+}
+tbody tr:nth-child(4) td:first-child{
+font-size: 20px;
+}
+
+thead{
+  display: block;
+}
+
+tbody{
+  display: block;
+  overflow-y: scroll;
+  height: 547px;
+  -webkit-overflow-scrolling:touch;
+
+}

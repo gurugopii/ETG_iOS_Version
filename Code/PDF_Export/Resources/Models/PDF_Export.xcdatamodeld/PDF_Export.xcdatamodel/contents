@@ -1,0 +1,1104 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5063" systemVersion="12F45" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="ETGAfe" representedClassName="ETGAfe" syncable="YES">
+        <attribute name="afe" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="indicator" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="status" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="projectSummary" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="ETGProjectSummary" inverseName="etgAfe_Projects" inverseEntity="ETGProjectSummary" syncable="YES"/>
+    </entity>
+    <entity name="ETGAfeTable" representedClassName="ETGAfeTable" syncable="YES">
+        <attribute name="afc" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="afeDescription" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="indicator" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="itd" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="latestApprovedAfe" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="variance" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="projectSummary" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="ETGProjectSummary" inverseName="etgAfeTable_Projects" inverseEntity="ETGProjectSummary" syncable="YES"/>
+        <relationship name="scorecard" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGScorecard" inverseName="etgAfeTable_Projects" inverseEntity="ETGScorecard" syncable="YES"/>
+    </entity>
+    <entity name="ETGApc" representedClassName="ETGApc" syncable="YES">
+        <attribute name="afc" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="apc" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="category" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="categoryRange" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="indicator" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="itd" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="phase" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="remark" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="variance" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="portfolio" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGPortfolio" inverseName="etgApcPortfolios" inverseEntity="ETGPortfolio" syncable="YES"/>
+        <relationship name="scorecard" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGScorecard" inverseName="etgApcPortfolios" inverseEntity="ETGScorecard" syncable="YES"/>
+    </entity>
+    <entity name="ETGBaselineType" representedClassName="ETGBaselineType" syncable="YES">
+        <attribute name="createdTime" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="key" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="projectKey" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="reportMonth" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="projectSummary" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGProjectSummary" inverseName="baselineTypes" inverseEntity="ETGProjectSummary" syncable="YES"/>
+        <relationship name="projectSummaryForMap" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGProjectSummaryForMap" inverseName="baselineTypes" inverseEntity="ETGProjectSummaryForMap" syncable="YES"/>
+        <relationship name="revisions" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ETGRevision" inverseName="baselinetype" inverseEntity="ETGRevision" syncable="YES"/>
+        <relationship name="scorecard" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGScorecard" inverseName="baselineTypes" inverseEntity="ETGScorecard" syncable="YES"/>
+    </entity>
+    <entity name="ETGBudgetCoreInfo" representedClassName="ETGBudgetCoreInfo" syncable="YES">
+        <attribute name="cumVowd" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="fdp" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="ytdActual" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="projectSummary" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="ETGProjectSummary" inverseName="etgBudgetCoreInfo_Projects" inverseEntity="ETGProjectSummary" syncable="YES"/>
+    </entity>
+    <entity name="ETGBudgetPerformance" representedClassName="ETGBudgetPerformance" syncable="YES">
+        <attribute name="forecastDescription" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="forecastValue" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="forecastVariance" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="indicator" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="planDescription" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="planValue" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="budgetHolder" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGCostAllocation" inverseName="budgetPerformances" inverseEntity="ETGCostAllocation" syncable="YES"/>
+        <relationship name="projectSummary" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="ETGProjectSummary" inverseName="etgBudgetPerformance_Projects" inverseEntity="ETGProjectSummary" syncable="YES"/>
+    </entity>
+    <entity name="ETGCluster" representedClassName="ETGCluster" syncable="YES">
+        <attribute name="key" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="projects" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ETGProject" inverseName="cluster" inverseEntity="ETGProject" syncable="YES"/>
+        <relationship name="region" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ETGRegion" inverseName="clusters" inverseEntity="ETGRegion" syncable="YES"/>
+    </entity>
+    <entity name="ETGCluster_ProjPosition" representedClassName="ETGCluster_ProjPosition" syncable="YES">
+        <attribute name="filterName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="key" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="reportingPeriod" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="projectPositions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ETGProjectPosition" inverseName="projPosition_cluster" inverseEntity="ETGProjectPosition" syncable="YES"/>
+    </entity>
+    <entity name="ETGCostAllocation" representedClassName="ETGCostAllocation" syncable="YES">
+        <attribute name="key" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="budgetPerformances" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ETGBudgetPerformance" inverseName="budgetHolder" inverseEntity="ETGBudgetPerformance" syncable="YES"/>
+        <relationship name="cpbs" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ETGCpb" inverseName="costAllocation" inverseEntity="ETGCpb" syncable="YES"/>
+        <relationship name="projects" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ETGProject" inverseName="budgetHolders" inverseEntity="ETGProject" syncable="YES"/>
+    </entity>
+    <entity name="ETGCostCategory" representedClassName="ETGCostCategory" syncable="YES">
+        <attribute name="key" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="projects" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ETGProject" inverseName="costCategory" inverseEntity="ETGProject" syncable="YES"/>
+    </entity>
+    <entity name="ETGCountries" representedClassName="ETGCountries" syncable="YES">
+        <attribute name="key" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="regions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ETGRegion" inverseName="country" inverseEntity="ETGRegion" syncable="YES"/>
+        <relationship name="reportingPeriods" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ETGReportingPeriod" inverseName="countries" inverseEntity="ETGReportingPeriod" syncable="YES"/>
+    </entity>
+    <entity name="ETGCpb" representedClassName="ETGCpb" syncable="YES">
+        <attribute name="fyYep" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="fyYtd" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="indicator" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="latestCpb" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="originalCpb" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="reportingDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="variance" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="costAllocation" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGCostAllocation" inverseName="cpbs" inverseEntity="ETGCostAllocation" syncable="YES"/>
+        <relationship name="portfolio" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGPortfolio" inverseName="etgCpbPortfolios" inverseEntity="ETGPortfolio" syncable="YES"/>
+        <relationship name="scorecard" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGScorecard" inverseName="etgCpbPortfolios" inverseEntity="ETGScorecard" syncable="YES"/>
+    </entity>
+    <entity name="ETGDepartment" syncable="YES">
+        <attribute name="key" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="division" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGDivision" inverseName="departments" inverseEntity="ETGDivision" syncable="YES"/>
+        <relationship name="reportingPeriods" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ETGReportingPeriod" inverseName="departments" inverseEntity="ETGReportingPeriod" syncable="YES"/>
+        <relationship name="sections" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ETGSection" inverseName="department" inverseEntity="ETGSection" syncable="YES"/>
+    </entity>
+    <entity name="ETGDepartmentSection" syncable="YES">
+        <attribute name="filterName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="key" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="reportingPeriod" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="sections" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ETGSection" inverseName="departmentSection" inverseEntity="ETGSection" syncable="YES"/>
+    </entity>
+    <entity name="ETGDivision" syncable="YES">
+        <attribute name="key" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="departments" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ETGDepartment" inverseName="division" inverseEntity="ETGDepartment" syncable="YES"/>
+        <relationship name="reportingPeriods" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ETGReportingPeriod" inverseName="divisions" inverseEntity="ETGReportingPeriod" syncable="YES"/>
+    </entity>
+    <entity name="ETGEccrAbr" representedClassName="ETGEccrAbr" syncable="YES">
+        <attribute name="approvedABR" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="dataTimeNm" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="indicator" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="projectCostCategoryKey" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="projectKey" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="regionKey" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="submittedABR" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="reportingMonth" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGReportingMonth" inverseName="abrs" inverseEntity="ETGReportingMonth" syncable="YES"/>
+    </entity>
+    <entity name="ETGEccrCpb" representedClassName="ETGEccrCpb" syncable="YES">
+        <attribute name="additionalCAPEX" optional="YES" attributeType="Decimal" defaultValueString="0" syncable="YES"/>
+        <attribute name="afcAmt" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="anticipatedCPB" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="btOutofBudgetHolder" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="budgetHolderKey" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="isInternational" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="latestCPBAmt" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="newlySanctionAmt" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="operatorShipKey" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="originalCPBAmt" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="plantoSanction" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="potentialRisk" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="potentialUnderSpending" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="potentialYEP" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="projectCostCategoryKey" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="projectKey" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="regionKey" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="yep" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="yepWithRisk" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="reportingMonth" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGReportingMonth" inverseName="cpbs" inverseEntity="ETGReportingMonth" syncable="YES"/>
+    </entity>
+    <entity name="ETGEccrCps" representedClassName="ETGEccrCps" syncable="YES">
+        <relationship name="afe" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="ETGEccrCpsAfe" inverseName="cps" inverseEntity="ETGEccrCpsAfe" syncable="YES"/>
+        <relationship name="apc" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGEccrCpsApc" inverseName="cps" inverseEntity="ETGEccrCpsApc" syncable="YES"/>
+        <relationship name="cpb" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGEccrCpsCpb" inverseName="cps" inverseEntity="ETGEccrCpsCpb" syncable="YES"/>
+        <relationship name="fdp" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGEccrCpsFdp" inverseName="cps" inverseEntity="ETGEccrCpsFdp" syncable="YES"/>
+        <relationship name="projectSummary" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGProjectSummary" inverseName="etgEccr_cps" inverseEntity="ETGProjectSummary" syncable="YES"/>
+        <relationship name="wpb" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGEccrCpsWpb" inverseName="cps" inverseEntity="ETGEccrCpsWpb" syncable="YES"/>
+    </entity>
+    <entity name="ETGEccrCpsAfe" representedClassName="ETGEccrCpsAfe" syncable="YES">
+        <relationship name="capex" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ETGEccrCpsAfeDetail" inverseName="afeForCapex" inverseEntity="ETGEccrCpsAfeDetail" syncable="YES"/>
+        <relationship name="cps" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGEccrCps" inverseName="afe" inverseEntity="ETGEccrCps" syncable="YES"/>
+        <relationship name="opex" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ETGEccrCpsAfeDetail" inverseName="afeForOpex" inverseEntity="ETGEccrCpsAfeDetail" syncable="YES"/>
+        <relationship name="statusCurrencies" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ETGEccrCpsStatusCurrency" inverseName="afe" inverseEntity="ETGEccrCpsStatusCurrency" syncable="YES"/>
+    </entity>
+    <entity name="ETGEccrCpsAfeDetail" representedClassName="ETGEccrCpsAfeDetail" syncable="YES">
+        <attribute name="afcAmt" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="afeId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="afeKey" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="cumVowdAmt" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="gInd" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="latestAfeAmt" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="originalAfeAmt" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="sequence" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="variance" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="wbsId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="wbsKey" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="afeForCapex" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGEccrCpsAfe" inverseName="capex" inverseEntity="ETGEccrCpsAfe" syncable="YES"/>
+        <relationship name="afeForOpex" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGEccrCpsAfe" inverseName="opex" inverseEntity="ETGEccrCpsAfe" syncable="YES"/>
+    </entity>
+    <entity name="ETGEccrCpsApc" representedClassName="ETGEccrCpsApc" syncable="YES">
+        <relationship name="capex" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ETGEccrCpsApcDetail" inverseName="apcForCapex" inverseEntity="ETGEccrCpsApcDetail" syncable="YES"/>
+        <relationship name="cps" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGEccrCps" inverseName="apc" inverseEntity="ETGEccrCps" syncable="YES"/>
+        <relationship name="justifications" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ETGEccrCpsJustification" inverseName="apc" inverseEntity="ETGEccrCpsJustification" syncable="YES"/>
+        <relationship name="opex" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ETGEccrCpsApcDetail" inverseName="apcForOpex" inverseEntity="ETGEccrCpsApcDetail" syncable="YES"/>
+        <relationship name="statusCurrencies" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ETGEccrCpsStatusCurrency" inverseName="apc" inverseEntity="ETGEccrCpsStatusCurrency" syncable="YES"/>
+    </entity>
+    <entity name="ETGEccrCpsApcDetail" representedClassName="ETGEccrCpsApcDetail" syncable="YES">
+        <attribute name="activityID" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="activityKey" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="activityName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="afcAmt" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="apcAmt" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="apcFID0" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="apcGate3" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="costItemame" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="costItemKey" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="cumVOWDAmt" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="facilityKey" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="facilityName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="gInd" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="pInd" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sequence" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="structureKey" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="structureName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="variance" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="apcForCapex" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGEccrCpsApc" inverseName="capex" inverseEntity="ETGEccrCpsApc" syncable="YES"/>
+        <relationship name="apcForOpex" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGEccrCpsApc" inverseName="opex" inverseEntity="ETGEccrCpsApc" syncable="YES"/>
+    </entity>
+    <entity name="ETGEccrCpsCpb" representedClassName="ETGEccrCpsCpb" syncable="YES">
+        <relationship name="capex" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ETGEccrCpsCpbDetail" inverseName="cpbForCapex" inverseEntity="ETGEccrCpsCpbDetail" syncable="YES"/>
+        <relationship name="cps" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGEccrCps" inverseName="cpb" inverseEntity="ETGEccrCps" syncable="YES"/>
+        <relationship name="justifications" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ETGEccrCpsJustification" inverseName="cpb" inverseEntity="ETGEccrCpsJustification" syncable="YES"/>
+        <relationship name="opex" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ETGEccrCpsCpbDetail" inverseName="cpbForOpex" inverseEntity="ETGEccrCpsCpbDetail" syncable="YES"/>
+        <relationship name="statusCurrencies" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ETGEccrCpsStatusCurrency" inverseName="cpb" inverseEntity="ETGEccrCpsStatusCurrency" syncable="YES"/>
+    </entity>
+    <entity name="ETGEccrCpsCpbDetail" representedClassName="ETGEccrCpsCpbDetail" syncable="YES">
+        <attribute name="activityID" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="activityKey" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="activityName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="costItemame" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="costItemKey" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="cpbAmt" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="facilityKey" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="facilityName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="gInd" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="latestCPBAmt" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="pInd" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sequence" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="structureKey" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="structureName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="variance" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="yep" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="ytdActual" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="ytdPlan" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="cpbForCapex" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGEccrCpsCpb" inverseName="capex" inverseEntity="ETGEccrCpsCpb" syncable="YES"/>
+        <relationship name="cpbForOpex" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGEccrCpsCpb" inverseName="opex" inverseEntity="ETGEccrCpsCpb" syncable="YES"/>
+    </entity>
+    <entity name="ETGEccrCpsFdp" representedClassName="ETGEccrCpsFdp" syncable="YES">
+        <relationship name="capex" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ETGEccrCpsFdpDetail" inverseName="fdpForCapex" inverseEntity="ETGEccrCpsFdpDetail" syncable="YES"/>
+        <relationship name="cps" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ETGEccrCps" inverseName="fdp" inverseEntity="ETGEccrCps" syncable="YES"/>
+        <relationship name="justifications" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ETGEccrCpsJustification" inverseName="fdp" inverseEntity="ETGEccrCpsJustification" syncable="YES"/>
+        <relationship name="opex" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ETGEccrCpsFdpDetail" inverseName="fdpForOpex" inverseEntity="ETGEccrCpsFdpDetail" syncable="YES"/>
+        <relationship name="statusCurrencies" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ETGEccrCpsStatusCurrency" inverseName="fdp" inverseEntity="ETGEccrCpsStatusCurrency" syncable="YES"/>
+    </entity>
+    <entity name="ETGEccrCpsFdpDetail" representedClassName="ETGEccrCpsFdpDetail" syncable="YES">
+        <attribute name="activityID" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="activityKey" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="activityName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="afcAmt" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="costItemame" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="costItemKey" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="cumVOWDAmt" optional="YES" attributeType="Decimal" defaultValueString="0" syncable="YES"/>
+        <attribute name="facilityKey" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="facilityName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="fdpAmt" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="fiaAmt" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="gInd" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sequence" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="structureKey" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="structureName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="variance" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="fdpForCapex" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGEccrCpsFdp" inverseName="capex" inverseEntity="ETGEccrCpsFdp" syncable="YES"/>
+        <relationship name="fdpForOpex" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGEccrCpsFdp" inverseName="opex" inverseEntity="ETGEccrCpsFdp" syncable="YES"/>
+    </entity>
+    <entity name="ETGEccrCpsJustification" representedClassName="ETGEccrCpsJustification" syncable="YES">
+        <attribute name="activityKey" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="activityName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="budgetItemKey" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="budgetItemName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="justificationDesc" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="structureKey" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="structureName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="varianceAmt" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="varianceReasonName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="apc" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGEccrCpsApc" inverseName="justifications" inverseEntity="ETGEccrCpsApc" syncable="YES"/>
+        <relationship name="cpb" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGEccrCpsCpb" inverseName="justifications" inverseEntity="ETGEccrCpsCpb" syncable="YES"/>
+        <relationship name="fdp" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGEccrCpsFdp" inverseName="justifications" inverseEntity="ETGEccrCpsFdp" syncable="YES"/>
+        <relationship name="wpb" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGEccrCpsWpb" inverseName="justifications" inverseEntity="ETGEccrCpsWpb" syncable="YES"/>
+    </entity>
+    <entity name="ETGEccrCpsStatusCurrency" representedClassName="ETGEccrCpsStatusCurrency" syncable="YES">
+        <attribute name="cpsCurrency" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cpsStatus" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="afe" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGEccrCpsAfe" inverseName="statusCurrencies" inverseEntity="ETGEccrCpsAfe" syncable="YES"/>
+        <relationship name="apc" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGEccrCpsApc" inverseName="statusCurrencies" inverseEntity="ETGEccrCpsApc" syncable="YES"/>
+        <relationship name="cpb" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGEccrCpsCpb" inverseName="statusCurrencies" inverseEntity="ETGEccrCpsCpb" syncable="YES"/>
+        <relationship name="fdp" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGEccrCpsFdp" inverseName="statusCurrencies" inverseEntity="ETGEccrCpsFdp" syncable="YES"/>
+        <relationship name="wpb" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGEccrCpsWpb" inverseName="statusCurrencies" inverseEntity="ETGEccrCpsWpb" syncable="YES"/>
+    </entity>
+    <entity name="ETGEccrCpsWpb" representedClassName="ETGEccrCpsWpb" syncable="YES">
+        <relationship name="capex" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ETGEccrCpsWpbDetail" inverseName="wpbForCapex" inverseEntity="ETGEccrCpsWpbDetail" syncable="YES"/>
+        <relationship name="cps" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGEccrCps" inverseName="wpb" inverseEntity="ETGEccrCps" syncable="YES"/>
+        <relationship name="justifications" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ETGEccrCpsJustification" inverseName="wpb" inverseEntity="ETGEccrCpsJustification" syncable="YES"/>
+        <relationship name="opex" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ETGEccrCpsWpbDetail" inverseName="wpbForOpex" inverseEntity="ETGEccrCpsWpbDetail" syncable="YES"/>
+        <relationship name="statusCurrencies" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ETGEccrCpsStatusCurrency" inverseName="wpb" inverseEntity="ETGEccrCpsStatusCurrency" syncable="YES"/>
+    </entity>
+    <entity name="ETGEccrCpsWpbDetail" representedClassName="ETGEccrCpsWpbDetail" syncable="YES">
+        <attribute name="activityKey" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="activityName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="approvedABR" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="approvedCO" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="budgetItemKey" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="budgetItemName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="currentMonthYEP" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="currentMonthYTDActual" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="gInd" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="latestWPB" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="originalWPB" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="sequence" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="structureKey" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="structureName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="variance" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="wbsId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="wbsKey" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="wpbForCapex" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGEccrCpsWpb" inverseName="capex" inverseEntity="ETGEccrCpsWpb" syncable="YES"/>
+        <relationship name="wpbForOpex" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGEccrCpsWpb" inverseName="opex" inverseEntity="ETGEccrCpsWpb" syncable="YES"/>
+    </entity>
+    <entity name="ETGFacility" representedClassName="ETGFacility" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="projectKey" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="reportMonth" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="scorecard" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="ETGScorecard" inverseName="productions" inverseEntity="ETGScorecard" syncable="YES"/>
+        <relationship name="wellDetails" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ETGWellDetail" inverseName="facility" inverseEntity="ETGWellDetail" syncable="YES"/>
+    </entity>
+    <entity name="ETGFDP" representedClassName="ETGFdp" syncable="YES">
+        <attribute name="afc" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="fia" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="indicator" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tpFipFdp" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="variance" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="vowd" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="scorecard" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGScorecard" inverseName="fdp" inverseEntity="ETGScorecard" syncable="YES"/>
+    </entity>
+    <entity name="ETGFirstHydrocarbon" representedClassName="ETGFirstHydrocarbon" syncable="YES">
+        <attribute name="actualDt" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="field" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="fieldKey" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="indicator" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="plannedDt" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="projectSummary" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="ETGProjectSummary" inverseName="etgFirstHydrocarbon_Projects" inverseEntity="ETGProjectSummary" syncable="YES"/>
+        <relationship name="projectSummaryForMap" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGProjectSummaryForMap" inverseName="etgFirstHydrocarbon_Projects" inverseEntity="ETGProjectSummaryForMap" syncable="YES"/>
+        <relationship name="scorecard" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGScorecard" inverseName="etgFirstHydrocarbon_Projects" inverseEntity="ETGScorecard" syncable="YES"/>
+    </entity>
+    <entity name="ETGHsePortfolio" representedClassName="ETGHsePortfolio" syncable="YES">
+        <attribute name="fatality" optional="YES" attributeType="Integer 32" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="fireincident" optional="YES" attributeType="Integer 32" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="losttimeinjuries" optional="YES" attributeType="Integer 32" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="totalrecordable" optional="YES" attributeType="Integer 32" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="portfolio" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGPortfolio" inverseName="etgHsePortfolios" inverseEntity="ETGPortfolio" syncable="YES"/>
+    </entity>
+    <entity name="ETGHseProject" representedClassName="ETGHseProject" syncable="YES">
+        <attribute name="totalManHour" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="projectSummary" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="ETGProjectSummary" inverseName="etgHse_Projects" inverseEntity="ETGProjectSummary" syncable="YES"/>
+    </entity>
+    <entity name="ETGHseTable_Project" representedClassName="ETGHseTable_Project" syncable="YES">
+        <attribute name="hseDescription" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="hseId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="indicator" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="kpi" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="ytdCase" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="ytdFrequency" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="projectSummary" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="ETGProjectSummary" inverseName="etgHseTable_Projects" inverseEntity="ETGProjectSummary" syncable="YES"/>
+        <relationship name="scorecard" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGScorecard" inverseName="etgHseTable_Projects" inverseEntity="ETGScorecard" syncable="YES"/>
+    </entity>
+    <entity name="ETGHydrocarbon" representedClassName="ETGHydrocarbon" syncable="YES">
+        <attribute name="actualforecast" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="group" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="indicator" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="plan" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="portfolio" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGPortfolio" inverseName="etgHydrocarbonPortfolios" inverseEntity="ETGPortfolio" syncable="YES"/>
+    </entity>
+    <entity name="ETGIssuesKeyHighlight" representedClassName="ETGIssuesKeyHighlight" syncable="YES">
+        <attribute name="activity" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="desc" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="mitigationPlan" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="keyHighlights" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="ETGKeyHighlight" inverseName="issuesAndConcerns" inverseEntity="ETGKeyHighlight" syncable="YES"/>
+    </entity>
+    <entity name="ETGKeyHighlight" representedClassName="ETGKeyHighlight" syncable="YES">
+        <attribute name="overallPpa" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="projectKey" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="reportMonth" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="issuesAndConcerns" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ETGIssuesKeyHighlight" inverseName="keyHighlights" inverseEntity="ETGIssuesKeyHighlight" syncable="YES"/>
+        <relationship name="keyhighlightsProgress" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ETGKeyHighlightProgressOverall" inverseName="keyhighlight" inverseEntity="ETGKeyHighlightProgressOverall" syncable="YES"/>
+        <relationship name="monthlyKeyHighlights" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ETGMonthlyKeyHighlight" inverseName="keyHighlight" inverseEntity="ETGMonthlyKeyHighlight" syncable="YES"/>
+        <relationship name="plannedActivitiesforNextMonth" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ETGPlannedKeyHighlight" inverseName="keyHighlight" inverseEntity="ETGPlannedKeyHighlight" syncable="YES"/>
+        <relationship name="ppa" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ETGPpaKeyHighlight" inverseName="keyHighlight" inverseEntity="ETGPpaKeyHighlight" syncable="YES"/>
+        <relationship name="project" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGProject" inverseName="keyHighlights" inverseEntity="ETGProject" syncable="YES"/>
+        <relationship name="reportingMonth" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGReportingMonth" inverseName="keyHighlights" inverseEntity="ETGReportingMonth" syncable="YES"/>
+    </entity>
+    <entity name="ETGKeyHighlightProgress" representedClassName="ETGKeyHighlightProgress" syncable="YES">
+        <attribute name="activityID" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="activityName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="currActualProgress" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="currPlanProgress" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="currVariance" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="indicator" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="prevActualProgress" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="prevPlanProgress" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="prevVariance" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="weightage" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="keyhighlightsProgressOverall" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGKeyHighlightProgressOverall" inverseName="keyHighLightsTable" inverseEntity="ETGKeyHighlightProgressOverall" syncable="YES"/>
+    </entity>
+    <entity name="ETGKeyHighlightProgressOverall" representedClassName="ETGKeyHighlightProgressOverall" syncable="YES">
+        <attribute name="overallCurrActualProgress" optional="YES" attributeType="Decimal" defaultValueString="0" syncable="YES"/>
+        <attribute name="overallCurrPlanProgress" optional="YES" attributeType="Decimal" defaultValueString="0" syncable="YES"/>
+        <attribute name="overallCurrVariance" optional="YES" attributeType="Decimal" defaultValueString="0" syncable="YES"/>
+        <attribute name="overallPrevActualProgress" optional="YES" attributeType="Decimal" defaultValueString="0" syncable="YES"/>
+        <attribute name="overallPrevPlanProgress" optional="YES" attributeType="Decimal" defaultValueString="0" syncable="YES"/>
+        <attribute name="overallPrevVariance" optional="YES" attributeType="Decimal" defaultValueString="0" syncable="YES"/>
+        <relationship name="keyhighlight" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGKeyHighlight" inverseName="keyhighlightsProgress" inverseEntity="ETGKeyHighlight" syncable="YES"/>
+        <relationship name="keyHighLightsTable" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ETGKeyHighlightProgress" inverseName="keyhighlightsProgressOverall" inverseEntity="ETGKeyHighlightProgress" syncable="YES"/>
+    </entity>
+    <entity name="ETGKeyMilestone" representedClassName="ETGKeyMilestone" syncable="YES">
+        <attribute name="actualDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="baselineNum" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="indicator" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="mileStone" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="plannedDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="revisions" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGRevision" inverseName="keyMilestones" inverseEntity="ETGRevision" syncable="YES"/>
+    </entity>
+    <entity name="ETGKeyMilestoneProjectPhase" representedClassName="ETGKeyMilestoneProjectPhase" syncable="YES">
+        <attribute name="projectPhase" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="projectPhaseKey" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="projectSummary" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ETGProjectSummary" inverseName="etgKeyMilestone_ProjectPhase" inverseEntity="ETGProjectSummary" syncable="YES"/>
+        <relationship name="projectSummaryForMap" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ETGProjectSummaryForMap" inverseName="etgKeyMilestone_ProjectPhase" inverseEntity="ETGProjectSummaryForMap" syncable="YES"/>
+        <relationship name="scorecard" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ETGScorecard" inverseName="etgKeyMilestone_ProjectPhase" inverseEntity="ETGScorecard" syncable="YES"/>
+    </entity>
+    <entity name="ETGManpowerTable_Project" representedClassName="ETGManpowerTable_Project" syncable="YES">
+        <attribute name="indicatorTotalCriticalBar" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="indicatorTotalRequirementBar" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="totalCritical" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="totalRequirement" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="projectSummary" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGProjectSummary" inverseName="etgManpowerTable_Projects" inverseEntity="ETGProjectSummary" syncable="YES"/>
+        <relationship name="scorecard" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGScorecard" inverseName="etgManpowerTable_Projects" inverseEntity="ETGScorecard" syncable="YES"/>
+    </entity>
+    <entity name="ETGMap" representedClassName="ETGMap" syncable="YES">
+        <attribute name="reportMonth" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="etgMapsPems" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ETGMapsPEM" inverseName="etgMap" inverseEntity="ETGMapsPEM" syncable="YES"/>
+        <relationship name="etgMapsPgd" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ETGMapsPGD" inverseName="etgMap" inverseEntity="ETGMapsPGD" syncable="YES"/>
+        <relationship name="project" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGProject" inverseName="maps" inverseEntity="ETGProject" syncable="YES"/>
+        <relationship name="reportingMonth" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGReportingMonth" inverseName="maps" inverseEntity="ETGReportingMonth" syncable="YES"/>
+    </entity>
+    <entity name="ETGMapsPEM" representedClassName="ETGMapsPEM" syncable="YES">
+        <attribute name="exedifferentMM" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="fdpdifferentMM" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="indicator" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="projectKey" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="projectName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="psc" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="pscKey" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="region" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="regionKey" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="riskCategory" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="riskCategoryKey" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="status" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="statusKey" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="etgMap" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGMap" inverseName="etgMapsPems" inverseEntity="ETGMap" syncable="YES"/>
+    </entity>
+    <entity name="ETGMapsPGD" representedClassName="ETGMapsPGD" syncable="YES">
+        <attribute name="currentPhase" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="duration" optional="YES" attributeType="Decimal" defaultValueString="0" syncable="YES"/>
+        <attribute name="indicator" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="phaseName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="projectKey" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="projectName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="psc" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="pscKey" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="region" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="regionKey" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="x" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="y" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="etgMap" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGMap" inverseName="etgMapsPgd" inverseEntity="ETGMap" syncable="YES"/>
+    </entity>
+    <entity name="ETGMLPortfolio" representedClassName="ETGMLPortfolio" syncable="YES">
+        <attribute name="calendarMonthOfYear" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="calendarYear" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="calendarYearEnglishMonth" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="fTELoading" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="projectStaffingStatusName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="reportingtimekey" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="portfolio" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGPortfolio" inverseName="etgMLPortfolios" inverseEntity="ETGPortfolio" syncable="YES"/>
+    </entity>
+    <entity name="ETGMLProject" representedClassName="ETGMLProject" syncable="YES">
+        <attribute name="calendarMonthOfYear" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="calendarYear" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="calendarYearEnglishMonth" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="fTELoading" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="projectStaffingStatusName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="reportingTimeKey" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="projectSummary" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGProjectSummary" inverseName="etgMlProjects" inverseEntity="ETGProjectSummary" syncable="YES"/>
+    </entity>
+    <entity name="ETGMonthlyKeyHighlight" representedClassName="ETGMonthlyKeyHighlight" syncable="YES">
+        <attribute name="activity" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="desc" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="mitigationPlan" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="keyHighlight" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="ETGKeyHighlight" inverseName="monthlyKeyHighlights" inverseEntity="ETGKeyHighlight" syncable="YES"/>
+    </entity>
+    <entity name="ETGMpAhc" representedClassName="ETGMpAhc" syncable="YES">
+        <attribute name="departmentKey" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="departmentName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="divisionKey" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="divisionName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="filledHeadcount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="sectionKey" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="sectionName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="vacantHeadcount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="year" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="reportingMonth" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGReportingMonth" inverseName="ahcs" inverseEntity="ETGReportingMonth" syncable="YES"/>
+    </entity>
+    <entity name="ETGMpCluster" representedClassName="ETGMpCluster" syncable="YES">
+        <attribute name="key" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="projectPositions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ETGProjectPosition" inverseName="clusters" inverseEntity="ETGProjectPosition" syncable="YES"/>
+        <relationship name="projects" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ETGMpProject" inverseName="cluster" inverseEntity="ETGMpProject" syncable="YES"/>
+        <relationship name="regions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ETGMpRegion" inverseName="clusters" inverseEntity="ETGMpRegion" syncable="YES"/>
+        <relationship name="reportingPeriods" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ETGReportingPeriod" inverseName="clusters" inverseEntity="ETGReportingPeriod" syncable="YES"/>
+    </entity>
+    <entity name="ETGMpPlr" representedClassName="ETGMpPlr" syncable="YES">
+        <attribute name="departmentKey" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="departmentName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="divisionKey" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="divisionName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="filledFTELoading" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="pneClusterKey" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="projectJobTitleKey" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="projectKey" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="projectName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="regionKey" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="sectionKey" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="sectionName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="timeKey" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="vacantFTELoading" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="year" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="reportingMonth" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGReportingMonth" inverseName="plrs" inverseEntity="ETGReportingMonth" syncable="YES"/>
+    </entity>
+    <entity name="ETGMpPnechcr" representedClassName="ETGMpPnechcr" syncable="YES">
+        <attribute name="departmentKey" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="departmentName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="divisionKey" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="divisionName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="filledHeadcount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="pneClusterKey" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="pneClusterName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="projectJobTitleKey" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="regionKey" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="regionName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sectionKey" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="sectionName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="vacantHeadcount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="year" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="reportingMonth" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGReportingMonth" inverseName="pnechcrs" inverseEntity="ETGReportingMonth" syncable="YES"/>
+    </entity>
+    <entity name="ETGMpProject" representedClassName="ETGMpProject" syncable="YES">
+        <attribute name="key" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="cluster" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGMpCluster" inverseName="projects" inverseEntity="ETGMpCluster" syncable="YES"/>
+        <relationship name="projectPositions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ETGProjectPosition" inverseName="projects" inverseEntity="ETGProjectPosition" syncable="YES"/>
+        <relationship name="region" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGMpRegion" inverseName="projects" inverseEntity="ETGMpRegion" syncable="YES"/>
+        <relationship name="reportingPeriods" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ETGReportingPeriod" inverseName="projects" inverseEntity="ETGReportingPeriod" syncable="YES"/>
+    </entity>
+    <entity name="ETGMpRegion" representedClassName="ETGMpRegion" syncable="YES">
+        <attribute name="key" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="clusters" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ETGMpCluster" inverseName="regions" inverseEntity="ETGMpCluster" syncable="YES"/>
+        <relationship name="projects" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ETGMpProject" inverseName="region" inverseEntity="ETGMpProject" syncable="YES"/>
+        <relationship name="reportingPeriods" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ETGReportingPeriod" inverseName="regions" inverseEntity="ETGReportingPeriod" syncable="YES"/>
+    </entity>
+    <entity name="ETGOperatorship" representedClassName="ETGOperatorship" syncable="YES">
+        <attribute name="key" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="project" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ETGProject" inverseName="operatorship" inverseEntity="ETGProject" syncable="YES"/>
+    </entity>
+    <entity name="ETGPDFCategories" representedClassName="ETGPDFCategories" syncable="YES">
+        <attribute name="categoryId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="categoryName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="subCategory" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ETGPDFSubCategories" inverseName="category" inverseEntity="ETGPDFSubCategories" syncable="YES"/>
+    </entity>
+    <entity name="ETGPDFDecks" representedClassName="ETGPDFDecks" syncable="YES">
+        <attribute name="category" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="dateAddedToServer" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="fileId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="fileName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="identification" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isOffline" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="reportingMonth" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="subCategory" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tags" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="ETGPDFMonths" representedClassName="ETGPDFMonths" syncable="YES">
+        <attribute name="month" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="monthId" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="ETGPDFSubCategories" representedClassName="ETGPDFSubCategories" syncable="YES">
+        <attribute name="subCategoryId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="subCategoryName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="category" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ETGPDFCategories" inverseName="subCategory" inverseEntity="ETGPDFCategories" syncable="YES"/>
+    </entity>
+    <entity name="ETGPhase" representedClassName="ETGPhase" syncable="YES">
+        <attribute name="key" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="project" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ETGProject" inverseName="phase" inverseEntity="ETGProject" syncable="YES"/>
+    </entity>
+    <entity name="ETGPlannedKeyHighlight" representedClassName="ETGPlannedKeyHighlight" syncable="YES">
+        <attribute name="activity" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="desc" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="mitigationPlan" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="keyHighlight" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="ETGKeyHighlight" inverseName="plannedActivitiesforNextMonth" inverseEntity="ETGKeyHighlight" syncable="YES"/>
+    </entity>
+    <entity name="ETGPlatform" representedClassName="ETGPlatform" syncable="YES">
+        <attribute name="actualDt" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="indicator" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="plannedDt" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="platform" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="scorecard" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGScorecard" inverseName="platform" inverseEntity="ETGScorecard" syncable="YES"/>
+    </entity>
+    <entity name="ETGPllAreasDisciplines" representedClassName="ETGPllAreasDisciplines" syncable="YES">
+        <attribute name="key" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="disciplines" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ETGPllDisciplines" inverseName="area" inverseEntity="ETGPllDisciplines" syncable="YES"/>
+    </entity>
+    <entity name="ETGPllDisciplines" representedClassName="ETGPllDisciplines" syncable="YES">
+        <attribute name="key" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <relationship name="area" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGPllAreasDisciplines" inverseName="disciplines" inverseEntity="ETGPllAreasDisciplines" syncable="YES"/>
+    </entity>
+    <entity name="ETGPllImpactLevels" representedClassName="ETGPllImpactLevels" syncable="YES">
+        <attribute name="key" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="ETGPllLessonRatings" representedClassName="ETGPllLessonRatings" syncable="YES">
+        <attribute name="key" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="ETGPllLessons" representedClassName="ETGPllLessons" syncable="YES">
+        <attribute name="activity" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="approvalStatus" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="areaName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="baselineDesc" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="causeDesc" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="createDttm" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="createUserId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="currencyName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="disciplineName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="impactDesc" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lessonDesc" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="potentialValue" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="potentialValueBasis" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="potentialValueConverted" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="projectLessonDetailKey" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="projectLessonImpactNm" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="projectLessonRatingNm" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="projectName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="recommendationDesc" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="replicateInd" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="reviewItemName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="riskCategoryName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="totalLikeNo" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="updateDttm" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="updateUserId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="usdRate" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="ETGPllLessonValues" representedClassName="ETGPllLessonValues" syncable="YES">
+        <attribute name="key" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="ETGPllPpmsActivity" representedClassName="ETGPllPpmsActivity" syncable="YES">
+        <attribute name="key" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="ETGPllPraElements" representedClassName="ETGPllPraElements" syncable="YES">
+        <attribute name="key" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="ETGPllReviews" representedClassName="ETGPllReviews" syncable="YES">
+        <attribute name="key" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="ETGPortfolio" representedClassName="ETGPortfolio" syncable="YES">
+        <attribute name="projectKey" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="reportMonth" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="etgApcPortfolios" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ETGApc" inverseName="portfolio" inverseEntity="ETGApc" syncable="YES"/>
+        <relationship name="etgCpbPortfolios" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ETGCpb" inverseName="portfolio" inverseEntity="ETGCpb" syncable="YES"/>
+        <relationship name="etgHsePortfolios" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ETGHsePortfolio" inverseName="portfolio" inverseEntity="ETGHsePortfolio" syncable="YES"/>
+        <relationship name="etgHydrocarbonPortfolios" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ETGHydrocarbon" inverseName="portfolio" inverseEntity="ETGHydrocarbon" syncable="YES"/>
+        <relationship name="etgMLPortfolios" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ETGMLPortfolio" inverseName="portfolio" inverseEntity="ETGMLPortfolio" syncable="YES"/>
+        <relationship name="etgProductionRtbdPortfolios" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ETGProductionRtbd_Portfolio" inverseName="portfolio" inverseEntity="ETGProductionRtbd_Portfolio" syncable="YES"/>
+        <relationship name="etgWpbPortfolios" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ETGWpb" inverseName="portfolio" inverseEntity="ETGWpb" syncable="YES"/>
+        <relationship name="project" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="ETGProject" inverseName="portfolios" inverseEntity="ETGProject" syncable="YES"/>
+        <relationship name="reportingMonth" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="ETGReportingMonth" inverseName="portfolios" inverseEntity="ETGReportingMonth" syncable="YES"/>
+    </entity>
+    <entity name="ETGPpaKeyHighlight" representedClassName="ETGPpaKeyHighlight" syncable="YES">
+        <attribute name="activity" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="desc" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="mitigationPlan" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="keyHighlight" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="ETGKeyHighlight" inverseName="ppa" inverseEntity="ETGKeyHighlight" syncable="YES"/>
+    </entity>
+    <entity name="ETGPPMS" representedClassName="ETGPPMS" syncable="YES">
+        <attribute name="indicator" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="percentage" optional="YES" attributeType="Decimal" defaultValueString="0" syncable="YES"/>
+        <attribute name="status" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="projectSummary" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGProjectSummary" inverseName="etgPpms_Projects" inverseEntity="ETGProjectSummary" syncable="YES"/>
+    </entity>
+    <entity name="ETGProductionRtbd_Portfolio" representedClassName="ETGProductionRtbd_Portfolio" syncable="YES">
+        <attribute name="condyIndicator" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="condyOutlook" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="condyPlan" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="gasIndicator" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="gasOutlook" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="gasPlan" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="oilIndicator" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="oilOutlook" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="oilPlan" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="rtbdIndicator" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="rtbdOutlook" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="rtbdPlan" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="portfolio" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGPortfolio" inverseName="etgProductionRtbdPortfolios" inverseEntity="ETGPortfolio" syncable="YES"/>
+    </entity>
+    <entity name="ETGProductionRtbd_Project" representedClassName="ETGProductionRtbd_Project" syncable="YES">
+        <attribute name="category" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cpb" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="indicator" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="yep" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="projectSummary" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="ETGProjectSummary" inverseName="etgProductionRtbd_Projects" inverseEntity="ETGProjectSummary" syncable="YES"/>
+    </entity>
+    <entity name="ETGProject" representedClassName="ETGProject" syncable="YES">
+        <attribute name="endDate" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="isUsedByMap" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="key" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="startDate" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="budgetHolders" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ETGCostAllocation" inverseName="projects" inverseEntity="ETGCostAllocation" syncable="YES"/>
+        <relationship name="cluster" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGCluster" inverseName="projects" inverseEntity="ETGCluster" syncable="YES"/>
+        <relationship name="complexities" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGProjetComplexities" inverseName="project" inverseEntity="ETGProjetComplexities" syncable="YES"/>
+        <relationship name="costCategory" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGCostCategory" inverseName="projects" inverseEntity="ETGCostCategory" syncable="YES"/>
+        <relationship name="keyHighlights" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ETGKeyHighlight" inverseName="project" inverseEntity="ETGKeyHighlight" syncable="YES"/>
+        <relationship name="maps" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ETGMap" inverseName="project" inverseEntity="ETGMap" syncable="YES"/>
+        <relationship name="natures" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGProjectNatures" inverseName="project" inverseEntity="ETGProjectNatures" syncable="YES"/>
+        <relationship name="operatorship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGOperatorship" inverseName="project" inverseEntity="ETGOperatorship" syncable="YES"/>
+        <relationship name="phase" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGPhase" inverseName="project" inverseEntity="ETGPhase" syncable="YES"/>
+        <relationship name="portfolios" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ETGPortfolio" inverseName="project" inverseEntity="ETGPortfolio" syncable="YES"/>
+        <relationship name="projectBackground" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGProjectBackground" inverseName="project" inverseEntity="ETGProjectBackground" syncable="YES"/>
+        <relationship name="projects" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ETGProjectSummary" inverseName="project" inverseEntity="ETGProjectSummary" syncable="YES"/>
+        <relationship name="projectsForMap" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGProjectSummaryForMap" inverseName="project" inverseEntity="ETGProjectSummaryForMap" syncable="YES"/>
+        <relationship name="projectStatus" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGProjectStatus" inverseName="project" inverseEntity="ETGProjectStatus" syncable="YES"/>
+        <relationship name="region" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGRegion" inverseName="projects" inverseEntity="ETGRegion" syncable="YES"/>
+        <relationship name="reportingMonths" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ETGReportingMonth" inverseName="projects" inverseEntity="ETGReportingMonth" syncable="YES"/>
+        <relationship name="scorecards" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ETGScorecard" inverseName="project" inverseEntity="ETGScorecard" syncable="YES"/>
+        <relationship name="types" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGProjectTypes" inverseName="project" inverseEntity="ETGProjectTypes" syncable="YES"/>
+    </entity>
+    <entity name="ETGProject_ProjPosition" representedClassName="ETGProject_ProjPosition" syncable="YES">
+        <attribute name="filterName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="key" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="reportingPeriod" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="projectPositions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ETGProjectPosition" inverseName="projPosition_project" inverseEntity="ETGProjectPosition" syncable="YES"/>
+    </entity>
+    <entity name="ETGProjectBackground" representedClassName="ETGProjectBackground" syncable="YES">
+        <attribute name="clusterName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="country" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="currencyName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="endDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="equity" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="fdpAmt" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="fdpDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="fdpStatus" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="firAmt" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="firDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="firStatus" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="objective" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="operatorshipName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="projectCostCategoryName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="projectEndDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="projectId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="projectImage" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="projectName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="projectNatureName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="projectStartDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="projectStatusName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="projectTypeName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="region" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="startDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="project" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGProject" inverseName="projectBackground" inverseEntity="ETGProject" syncable="YES"/>
+    </entity>
+    <entity name="ETGProjectNatures" representedClassName="ETGProjectNatures" syncable="YES">
+        <attribute name="key" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="project" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGProject" inverseName="natures" inverseEntity="ETGProject" syncable="YES"/>
+    </entity>
+    <entity name="ETGProjectPosition" representedClassName="ETGProjectPosition" syncable="YES">
+        <attribute name="key" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="clusters" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ETGMpCluster" inverseName="projectPositions" inverseEntity="ETGMpCluster" syncable="YES"/>
+        <relationship name="projects" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ETGMpProject" inverseName="projectPositions" inverseEntity="ETGMpProject" syncable="YES"/>
+        <relationship name="projPosition_cluster" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ETGCluster_ProjPosition" inverseName="projectPositions" inverseEntity="ETGCluster_ProjPosition" syncable="YES"/>
+        <relationship name="projPosition_project" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ETGProject_ProjPosition" inverseName="projectPositions" inverseEntity="ETGProject_ProjPosition" syncable="YES"/>
+        <relationship name="reportingPeriods" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ETGReportingPeriod" inverseName="projectPositions" inverseEntity="ETGReportingPeriod" syncable="YES"/>
+    </entity>
+    <entity name="ETGProjectStatus" representedClassName="ETGProjectStatus" syncable="YES">
+        <attribute name="key" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="project" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ETGProject" inverseName="projectStatus" inverseEntity="ETGProject" syncable="YES"/>
+    </entity>
+    <entity name="ETGProjectSummary" representedClassName="ETGProjectSummary" syncable="YES">
+        <attribute name="projectKey" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="reportMonth" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="baselineTypes" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ETGBaselineType" inverseName="projectSummary" inverseEntity="ETGBaselineType" syncable="YES"/>
+        <relationship name="etgAfe_Projects" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ETGAfe" inverseName="projectSummary" inverseEntity="ETGAfe" syncable="YES"/>
+        <relationship name="etgAfeTable_Projects" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ETGAfeTable" inverseName="projectSummary" inverseEntity="ETGAfeTable" syncable="YES"/>
+        <relationship name="etgBudgetCoreInfo_Projects" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="ETGBudgetCoreInfo" inverseName="projectSummary" inverseEntity="ETGBudgetCoreInfo" syncable="YES"/>
+        <relationship name="etgBudgetPerformance_Projects" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ETGBudgetPerformance" inverseName="projectSummary" inverseEntity="ETGBudgetPerformance" syncable="YES"/>
+        <relationship name="etgEccr_cps" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGEccrCps" inverseName="projectSummary" inverseEntity="ETGEccrCps" syncable="YES"/>
+        <relationship name="etgFirstHydrocarbon_Projects" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ETGFirstHydrocarbon" inverseName="projectSummary" inverseEntity="ETGFirstHydrocarbon" syncable="YES"/>
+        <relationship name="etgHse_Projects" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="ETGHseProject" inverseName="projectSummary" inverseEntity="ETGHseProject" syncable="YES"/>
+        <relationship name="etgHseTable_Projects" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ETGHseTable_Project" inverseName="projectSummary" inverseEntity="ETGHseTable_Project" syncable="YES"/>
+        <relationship name="etgKeyMilestone_ProjectPhase" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGKeyMilestoneProjectPhase" inverseName="projectSummary" inverseEntity="ETGKeyMilestoneProjectPhase" syncable="YES"/>
+        <relationship name="etgManpowerTable_Projects" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ETGManpowerTable_Project" inverseName="projectSummary" inverseEntity="ETGManpowerTable_Project" syncable="YES"/>
+        <relationship name="etgMlProjects" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ETGMLProject" inverseName="projectSummary" inverseEntity="ETGMLProject" syncable="YES"/>
+        <relationship name="etgOpportunityImpact_Projects" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ETGRiskOpportunity" inverseName="projectSummary" inverseEntity="ETGRiskOpportunity" syncable="YES"/>
+        <relationship name="etgPpms_Projects" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ETGPPMS" inverseName="projectSummary" inverseEntity="ETGPPMS" syncable="YES"/>
+        <relationship name="etgProductionRtbd_Projects" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ETGProductionRtbd_Project" inverseName="projectSummary" inverseEntity="ETGProductionRtbd_Project" syncable="YES"/>
+        <relationship name="etgScheduleProgress_Projects" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ETGScheduleProgress" inverseName="projectSummary" inverseEntity="ETGScheduleProgress" syncable="YES"/>
+        <relationship name="project" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="ETGProject" inverseName="projects" inverseEntity="ETGProject" syncable="YES"/>
+        <relationship name="reportingMonth" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="ETGReportingMonth" inverseName="projectSummarys" inverseEntity="ETGReportingMonth" syncable="YES"/>
+    </entity>
+    <entity name="ETGProjectSummaryForMap" representedClassName="ETGProjectSummaryForMap" syncable="YES">
+        <attribute name="projectKey" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="reportMonth" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="baselineTypes" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ETGBaselineType" inverseName="projectSummaryForMap" inverseEntity="ETGBaselineType" syncable="YES"/>
+        <relationship name="etgFirstHydrocarbon_Projects" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ETGFirstHydrocarbon" inverseName="projectSummaryForMap" inverseEntity="ETGFirstHydrocarbon" syncable="YES"/>
+        <relationship name="etgKeyMilestone_ProjectPhase" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="ETGKeyMilestoneProjectPhase" inverseName="projectSummaryForMap" inverseEntity="ETGKeyMilestoneProjectPhase" syncable="YES"/>
+        <relationship name="project" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="ETGProject" inverseName="projectsForMap" inverseEntity="ETGProject" syncable="YES"/>
+        <relationship name="reportingMonth" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="ETGReportingMonth" inverseName="projectSummarysForMap" inverseEntity="ETGReportingMonth" syncable="YES"/>
+    </entity>
+    <entity name="ETGProjectTypes" representedClassName="ETGProjectTypes" syncable="YES">
+        <attribute name="key" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="project" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ETGProject" inverseName="types" inverseEntity="ETGProject" syncable="YES"/>
+    </entity>
+    <entity name="ETGProjetComplexities" representedClassName="ETGProjetComplexities" syncable="YES">
+        <attribute name="key" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="project" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ETGProject" inverseName="complexities" inverseEntity="ETGProject" syncable="YES"/>
+    </entity>
+    <entity name="ETGRegion" representedClassName="ETGRegion" syncable="YES">
+        <attribute name="key" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="clusters" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ETGCluster" inverseName="region" inverseEntity="ETGCluster" syncable="YES"/>
+        <relationship name="country" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGCountries" inverseName="regions" inverseEntity="ETGCountries" syncable="YES"/>
+        <relationship name="projects" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ETGProject" inverseName="region" inverseEntity="ETGProject" syncable="YES"/>
+    </entity>
+    <entity name="ETGReportingMonth" representedClassName="ETGReportingMonth" syncable="YES">
+        <attribute name="key" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="abrs" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ETGEccrAbr" inverseName="reportingMonth" inverseEntity="ETGEccrAbr" syncable="YES"/>
+        <relationship name="ahcs" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ETGMpAhc" inverseName="reportingMonth" inverseEntity="ETGMpAhc" syncable="YES"/>
+        <relationship name="cpbs" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ETGEccrCpb" inverseName="reportingMonth" inverseEntity="ETGEccrCpb" syncable="YES"/>
+        <relationship name="keyHighlights" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ETGKeyHighlight" inverseName="reportingMonth" inverseEntity="ETGKeyHighlight" syncable="YES"/>
+        <relationship name="maps" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ETGMap" inverseName="reportingMonth" inverseEntity="ETGMap" syncable="YES"/>
+        <relationship name="plrs" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ETGMpPlr" inverseName="reportingMonth" inverseEntity="ETGMpPlr" syncable="YES"/>
+        <relationship name="pnechcrs" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ETGMpPnechcr" inverseName="reportingMonth" inverseEntity="ETGMpPnechcr" syncable="YES"/>
+        <relationship name="portfolios" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ETGPortfolio" inverseName="reportingMonth" inverseEntity="ETGPortfolio" syncable="YES"/>
+        <relationship name="projects" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ETGProject" inverseName="reportingMonths" inverseEntity="ETGProject" syncable="YES"/>
+        <relationship name="projectSummarys" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ETGProjectSummary" inverseName="reportingMonth" inverseEntity="ETGProjectSummary" syncable="YES"/>
+        <relationship name="projectSummarysForMap" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGProjectSummaryForMap" inverseName="reportingMonth" inverseEntity="ETGProjectSummaryForMap" syncable="YES"/>
+        <relationship name="scorecards" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ETGScorecard" inverseName="reportingMonth" inverseEntity="ETGScorecard" syncable="YES"/>
+        <relationship name="timeStamps" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ETGTimestamp" inverseName="reportingMonth" inverseEntity="ETGTimestamp" syncable="YES"/>
+    </entity>
+    <entity name="ETGReportingPeriod" representedClassName="ETGReportingPeriod" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="filterName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="clusters" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ETGMpCluster" inverseName="reportingPeriods" inverseEntity="ETGMpCluster" syncable="YES"/>
+        <relationship name="countries" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ETGCountries" inverseName="reportingPeriods" inverseEntity="ETGCountries" syncable="YES"/>
+        <relationship name="departments" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ETGDepartment" inverseName="reportingPeriods" inverseEntity="ETGDepartment" syncable="YES"/>
+        <relationship name="divisions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ETGDivision" inverseName="reportingPeriods" inverseEntity="ETGDivision" syncable="YES"/>
+        <relationship name="projectPositions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ETGProjectPosition" inverseName="reportingPeriods" inverseEntity="ETGProjectPosition" syncable="YES"/>
+        <relationship name="projects" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ETGMpProject" inverseName="reportingPeriods" inverseEntity="ETGMpProject" syncable="YES"/>
+        <relationship name="regions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ETGMpRegion" inverseName="reportingPeriods" inverseEntity="ETGMpRegion" syncable="YES"/>
+        <relationship name="sections" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ETGSection" inverseName="reportingPeriods" inverseEntity="ETGSection" syncable="YES"/>
+        <relationship name="years" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ETGYear" inverseName="reportingPeriods" inverseEntity="ETGYear" syncable="YES"/>
+    </entity>
+    <entity name="ETGRevision" representedClassName="ETGRevision" syncable="YES">
+        <attribute name="number" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="baselinetype" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGBaselineType" inverseName="revisions" inverseEntity="ETGBaselineType" syncable="YES"/>
+        <relationship name="keyMilestones" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ETGKeyMilestone" inverseName="revisions" inverseEntity="ETGKeyMilestone" syncable="YES"/>
+    </entity>
+    <entity name="ETGRiskOpportunity" representedClassName="ETGRiskOpportunity" syncable="YES">
+        <attribute name="activity" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cluster" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cost" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="descriptions" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="identifiedDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="mitigation" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="negativeImpact" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="probability" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="production" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="productionGas" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="productionOil" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="schedule" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="status" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="projectSummary" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGProjectSummary" inverseName="etgOpportunityImpact_Projects" inverseEntity="ETGProjectSummary" syncable="YES"/>
+    </entity>
+    <entity name="ETGScheduleProgress" representedClassName="ETGScheduleProgress" syncable="YES">
+        <attribute name="actualProgress" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="indicator" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="originalBaseline" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="planProgress" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="reportingDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="variance" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="projectSummary" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="ETGProjectSummary" inverseName="etgScheduleProgress_Projects" inverseEntity="ETGProjectSummary" syncable="YES"/>
+        <relationship name="scorecard" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGScorecard" inverseName="etgScheduleProgress_Projects" inverseEntity="ETGScorecard" syncable="YES"/>
+    </entity>
+    <entity name="ETGScorecard" representedClassName="ETGScorecard" syncable="YES">
+        <attribute name="costPcsb" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="costPmu" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="hse" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="manningHeadCount" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="production" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="projectKey" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="reportMonth" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="schedule" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="baselineTypes" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ETGBaselineType" inverseName="scorecard" inverseEntity="ETGBaselineType" syncable="YES"/>
+        <relationship name="etgAfeTable_Projects" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ETGAfeTable" inverseName="scorecard" inverseEntity="ETGAfeTable" syncable="YES"/>
+        <relationship name="etgApcPortfolios" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ETGApc" inverseName="scorecard" inverseEntity="ETGApc" syncable="YES"/>
+        <relationship name="etgCpbPortfolios" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ETGCpb" inverseName="scorecard" inverseEntity="ETGCpb" syncable="YES"/>
+        <relationship name="etgFirstHydrocarbon_Projects" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ETGFirstHydrocarbon" inverseName="scorecard" inverseEntity="ETGFirstHydrocarbon" syncable="YES"/>
+        <relationship name="etgHseTable_Projects" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ETGHseTable_Project" inverseName="scorecard" inverseEntity="ETGHseTable_Project" syncable="YES"/>
+        <relationship name="etgKeyMilestone_ProjectPhase" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGKeyMilestoneProjectPhase" inverseName="scorecard" inverseEntity="ETGKeyMilestoneProjectPhase" syncable="YES"/>
+        <relationship name="etgManpowerTable_Projects" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ETGManpowerTable_Project" inverseName="scorecard" inverseEntity="ETGManpowerTable_Project" syncable="YES"/>
+        <relationship name="etgScheduleProgress_Projects" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ETGScheduleProgress" inverseName="scorecard" inverseEntity="ETGScheduleProgress" syncable="YES"/>
+        <relationship name="fdp" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ETGFDP" inverseName="scorecard" inverseEntity="ETGFDP" syncable="YES"/>
+        <relationship name="platform" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ETGPlatform" inverseName="scorecard" inverseEntity="ETGPlatform" syncable="YES"/>
+        <relationship name="productions" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ETGFacility" inverseName="scorecard" inverseEntity="ETGFacility" syncable="YES"/>
+        <relationship name="project" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="ETGProject" inverseName="scorecards" inverseEntity="ETGProject" syncable="YES"/>
+        <relationship name="reportingMonth" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="ETGReportingMonth" inverseName="scorecards" inverseEntity="ETGReportingMonth" syncable="YES"/>
+        <relationship name="wpbCostPMUs" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ETGWPBCostPMU" inverseName="scorecard" inverseEntity="ETGWPBCostPMU" syncable="YES"/>
+    </entity>
+    <entity name="ETGSection" representedClassName="ETGSection" syncable="YES">
+        <attribute name="key" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="department" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ETGDepartment" inverseName="sections" inverseEntity="ETGDepartment" syncable="YES"/>
+        <relationship name="departmentSection" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ETGDepartmentSection" inverseName="sections" inverseEntity="ETGDepartmentSection" syncable="YES"/>
+        <relationship name="reportingPeriods" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ETGReportingPeriod" inverseName="sections" inverseEntity="ETGReportingPeriod" syncable="YES"/>
+    </entity>
+    <entity name="ETGTimestamp" representedClassName="ETGTimestamp" syncable="YES">
+        <attribute name="moduleName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="timeStamp" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="reportingMonth" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGReportingMonth" inverseName="timeStamps" inverseEntity="ETGReportingMonth" syncable="YES"/>
+    </entity>
+    <entity name="ETGUacPermission" representedClassName="ETGUacPermission" syncable="YES">
+        <attribute name="content" optional="YES" attributeType="Binary" syncable="YES"/>
+    </entity>
+    <entity name="ETGWelcomeImage" representedClassName="ETGWelcomeImage" syncable="YES">
+        <attribute name="data" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
+        <attribute name="key" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="ETGWellDetail" representedClassName="ETGWellDetails" syncable="YES">
+        <attribute name="condyIndicator" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="condyOutlook" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="condyPlanned" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="dataTimeKey" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="gasIndicator" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="gasOutlook" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="gasPlanned" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="oilIndicator" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="oilOutlook" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="oilPlanned" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="rtbdIndicator" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="rtbdOutlook" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="rtbdPlanned" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="sort" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="wellName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="facility" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGFacility" inverseName="wellDetails" inverseEntity="ETGFacility" syncable="YES"/>
+    </entity>
+    <entity name="ETGWpb" representedClassName="ETGWpb" syncable="YES">
+        <attribute name="abrApproved" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="abrSubmitted" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="indicator" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="reportingDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="portfolio" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGPortfolio" inverseName="etgWpbPortfolios" inverseEntity="ETGPortfolio" syncable="YES"/>
+    </entity>
+    <entity name="ETGWPBCostPMU" representedClassName="ETGWPBCostPMU" syncable="YES">
+        <attribute name="abrApproved" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="indicator" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="latestWpb" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="originalWpb" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="section" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sectionKey" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="variance" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="yepG" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="yercoApproved" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="scorecard" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ETGScorecard" inverseName="wpbCostPMUs" inverseEntity="ETGScorecard" syncable="YES"/>
+    </entity>
+    <entity name="ETGYear" representedClassName="ETGYear" syncable="YES">
+        <attribute name="key" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="reportingPeriods" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ETGReportingPeriod" inverseName="years" inverseEntity="ETGReportingPeriod" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="ETGAfe" positionX="0" positionY="0" width="128" height="105"/>
+        <element name="ETGAfeTable" positionX="0" positionY="0" width="128" height="165"/>
+        <element name="ETGApc" positionX="0" positionY="0" width="128" height="210"/>
+        <element name="ETGBaselineType" positionX="0" positionY="0" width="128" height="180"/>
+        <element name="ETGBudgetCoreInfo" positionX="0" positionY="0" width="128" height="105"/>
+        <element name="ETGBudgetPerformance" positionX="0" positionY="0" width="128" height="165"/>
+        <element name="ETGCluster" positionX="0" positionY="0" width="128" height="105"/>
+        <element name="ETGCluster_ProjPosition" positionX="0" positionY="0" width="128" height="105"/>
+        <element name="ETGCostAllocation" positionX="0" positionY="0" width="128" height="120"/>
+        <element name="ETGCostCategory" positionX="0" positionY="0" width="128" height="90"/>
+        <element name="ETGCountries" positionX="0" positionY="0" width="128" height="105"/>
+        <element name="ETGCpb" positionX="0" positionY="0" width="128" height="195"/>
+        <element name="ETGDepartment" positionX="0" positionY="0" width="128" height="120"/>
+        <element name="ETGDepartmentSection" positionX="0" positionY="0" width="128" height="105"/>
+        <element name="ETGDivision" positionX="0" positionY="0" width="128" height="105"/>
+        <element name="ETGEccrAbr" positionX="0" positionY="0" width="128" height="165"/>
+        <element name="ETGEccrCpb" positionX="0" positionY="0" width="128" height="345"/>
+        <element name="ETGEccrCps" positionX="0" positionY="0" width="128" height="135"/>
+        <element name="ETGEccrCpsAfe" positionX="0" positionY="0" width="128" height="105"/>
+        <element name="ETGEccrCpsAfeDetail" positionX="0" positionY="0" width="128" height="240"/>
+        <element name="ETGEccrCpsApc" positionX="0" positionY="0" width="128" height="120"/>
+        <element name="ETGEccrCpsApcDetail" positionX="0" positionY="0" width="128" height="345"/>
+        <element name="ETGEccrCpsCpb" positionX="0" positionY="0" width="128" height="120"/>
+        <element name="ETGEccrCpsCpbDetail" positionX="0" positionY="0" width="128" height="345"/>
+        <element name="ETGEccrCpsFdp" positionX="0" positionY="0" width="128" height="120"/>
+        <element name="ETGEccrCpsFdpDetail" positionX="0" positionY="0" width="128" height="315"/>
+        <element name="ETGEccrCpsJustification" positionX="0" positionY="0" width="128" height="240"/>
+        <element name="ETGEccrCpsStatusCurrency" positionX="0" positionY="0" width="128" height="150"/>
+        <element name="ETGEccrCpsWpb" positionX="0" positionY="0" width="128" height="120"/>
+        <element name="ETGEccrCpsWpbDetail" positionX="0" positionY="0" width="128" height="330"/>
+        <element name="ETGFacility" positionX="0" positionY="0" width="128" height="120"/>
+        <element name="ETGFDP" positionX="0" positionY="0" width="128" height="150"/>
+        <element name="ETGFirstHydrocarbon" positionX="0" positionY="0" width="128" height="165"/>
+        <element name="ETGHsePortfolio" positionX="0" positionY="0" width="128" height="120"/>
+        <element name="ETGHseProject" positionX="0" positionY="0" width="128" height="75"/>
+        <element name="ETGHseTable_Project" positionX="0" positionY="0" width="128" height="165"/>
+        <element name="ETGHydrocarbon" positionX="0" positionY="0" width="128" height="120"/>
+        <element name="ETGIssuesKeyHighlight" positionX="0" positionY="0" width="128" height="105"/>
+        <element name="ETGKeyHighlight" positionX="0" positionY="0" width="128" height="195"/>
+        <element name="ETGKeyHighlightProgress" positionX="0" positionY="0" width="128" height="210"/>
+        <element name="ETGKeyHighlightProgressOverall" positionX="0" positionY="0" width="128" height="165"/>
+        <element name="ETGKeyMilestone" positionX="0" positionY="0" width="128" height="135"/>
+        <element name="ETGKeyMilestoneProjectPhase" positionX="0" positionY="0" width="128" height="120"/>
+        <element name="ETGManpowerTable_Project" positionX="0" positionY="0" width="128" height="135"/>
+        <element name="ETGMap" positionX="0" positionY="0" width="128" height="120"/>
+        <element name="ETGMapsPEM" positionX="0" positionY="0" width="128" height="255"/>
+        <element name="ETGMapsPGD" positionX="0" positionY="0" width="128" height="240"/>
+        <element name="ETGMLPortfolio" positionX="0" positionY="0" width="128" height="150"/>
+        <element name="ETGMLProject" positionX="0" positionY="0" width="128" height="150"/>
+        <element name="ETGMonthlyKeyHighlight" positionX="0" positionY="0" width="128" height="105"/>
+        <element name="ETGMpAhc" positionX="0" positionY="0" width="128" height="195"/>
+        <element name="ETGMpCluster" positionX="0" positionY="0" width="128" height="135"/>
+        <element name="ETGMpPlr" positionX="0" positionY="0" width="128" height="285"/>
+        <element name="ETGMpPnechcr" positionX="0" positionY="0" width="128" height="270"/>
+        <element name="ETGMpProject" positionX="0" positionY="0" width="128" height="135"/>
+        <element name="ETGMpRegion" positionX="0" positionY="0" width="128" height="120"/>
+        <element name="ETGOperatorship" positionX="0" positionY="0" width="128" height="90"/>
+        <element name="ETGPDFCategories" positionX="0" positionY="0" width="128" height="90"/>
+        <element name="ETGPDFDecks" positionX="0" positionY="0" width="128" height="180"/>
+        <element name="ETGPDFMonths" positionX="0" positionY="0" width="128" height="75"/>
+        <element name="ETGPDFSubCategories" positionX="0" positionY="0" width="128" height="90"/>
+        <element name="ETGPhase" positionX="0" positionY="0" width="128" height="90"/>
+        <element name="ETGPlannedKeyHighlight" positionX="0" positionY="0" width="128" height="105"/>
+        <element name="ETGPlatform" positionX="0" positionY="0" width="128" height="120"/>
+        <element name="ETGPllAreasDisciplines" positionX="0" positionY="0" width="128" height="90"/>
+        <element name="ETGPllDisciplines" positionX="0" positionY="0" width="128" height="90"/>
+        <element name="ETGPllImpactLevels" positionX="0" positionY="0" width="128" height="75"/>
+        <element name="ETGPllLessonRatings" positionX="0" positionY="0" width="128" height="75"/>
+        <element name="ETGPllLessons" positionX="0" positionY="0" width="128" height="435"/>
+        <element name="ETGPllLessonValues" positionX="0" positionY="0" width="128" height="75"/>
+        <element name="ETGPllPpmsActivity" positionX="0" positionY="0" width="128" height="75"/>
+        <element name="ETGPllPraElements" positionX="0" positionY="0" width="128" height="75"/>
+        <element name="ETGPllReviews" positionX="0" positionY="0" width="128" height="75"/>
+        <element name="ETGPortfolio" positionX="0" positionY="0" width="128" height="210"/>
+        <element name="ETGPpaKeyHighlight" positionX="0" positionY="0" width="128" height="105"/>
+        <element name="ETGPPMS" positionX="0" positionY="0" width="128" height="105"/>
+        <element name="ETGProductionRtbd_Portfolio" positionX="0" positionY="0" width="128" height="240"/>
+        <element name="ETGProductionRtbd_Project" positionX="0" positionY="0" width="128" height="135"/>
+        <element name="ETGProject" positionX="0" positionY="0" width="128" height="390"/>
+        <element name="ETGProject_ProjPosition" positionX="0" positionY="0" width="128" height="105"/>
+        <element name="ETGProjectBackground" positionX="0" positionY="0" width="128" height="420"/>
+        <element name="ETGProjectNatures" positionX="0" positionY="0" width="128" height="90"/>
+        <element name="ETGProjectPosition" positionX="0" positionY="0" width="128" height="150"/>
+        <element name="ETGProjectStatus" positionX="0" positionY="0" width="128" height="90"/>
+        <element name="ETGProjectSummary" positionX="0" positionY="0" width="128" height="345"/>
+        <element name="ETGProjectSummaryForMap" positionX="0" positionY="0" width="128" height="150"/>
+        <element name="ETGProjectTypes" positionX="0" positionY="0" width="128" height="90"/>
+        <element name="ETGProjetComplexities" positionX="0" positionY="0" width="128" height="90"/>
+        <element name="ETGRegion" positionX="0" positionY="0" width="128" height="120"/>
+        <element name="ETGReportingMonth" positionX="0" positionY="0" width="128" height="270"/>
+        <element name="ETGReportingPeriod" positionX="0" positionY="0" width="128" height="210"/>
+        <element name="ETGRevision" positionX="0" positionY="0" width="128" height="90"/>
+        <element name="ETGRiskOpportunity" positionX="0" positionY="0" width="128" height="270"/>
+        <element name="ETGScheduleProgress" positionX="0" positionY="0" width="128" height="165"/>
+        <element name="ETGScorecard" positionX="0" positionY="0" width="128" height="390"/>
+        <element name="ETGSection" positionX="0" positionY="0" width="128" height="120"/>
+        <element name="ETGTimestamp" positionX="0" positionY="0" width="128" height="90"/>
+        <element name="ETGUacPermission" positionX="9" positionY="153" width="128" height="60"/>
+        <element name="ETGWelcomeImage" positionX="0" positionY="0" width="128" height="75"/>
+        <element name="ETGWellDetail" positionX="0" positionY="0" width="128" height="285"/>
+        <element name="ETGWpb" positionX="0" positionY="0" width="128" height="120"/>
+        <element name="ETGWPBCostPMU" positionX="0" positionY="0" width="128" height="195"/>
+        <element name="ETGYear" positionX="0" positionY="0" width="128" height="90"/>
+    </elements>
+</model>

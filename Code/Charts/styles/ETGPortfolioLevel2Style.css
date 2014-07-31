@@ -1,0 +1,289 @@
+th{
+  background-color: #02AD9D;
+}
+
+#hydro_legend span,
+.portfolio-title{
+/*
+  color: #999;
+*/
+}
+
+#operatorship, #phase{
+  text-align: center;
+}
+
+#hydroMainContainer{
+  width: 984px;
+  height: 593px;
+  margin: 0;
+}
+#tableHydroContainer{
+  height: 593px;
+  /* margin-top: 26px; */
+}
+
+#hydroTable{
+  text-align: left;
+  margin-top: 0px;
+}
+
+#hydroTable tbody{
+  height: 568px;
+}
+
+#hydroTable .td-main{
+  width: 99px;
+  max-width: 99px;
+  text-align: left;
+}
+
+#hydroTable .td-additional{
+  width: 10px;
+  max-width: 10px;
+}
+
+#hydroTable .td-month{
+  width: 40px;
+  max-width: 40px;
+}
+#hydroTable th{
+  background-color: #02AD9D;
+  /* color: white; */
+}
+#hydroTable th:nth-child(n):nth-child(-n+5){
+  text-align: center;
+}
+
+#hydro-title{
+  font-size: 15px;
+  height: 25px;
+  background: #FFF;
+  margin-left: 10px;
+  color: #02AD9D;
+  margin: 0;
+  padding-top: 3px;
+}
+
+#hydro_legend_container{
+  margin: 0;
+  background: #FFF;
+}
+#hydro_legend img{
+  max-width: 15px;
+  max-height: 15px;
+}
+#hydro_legend{
+  margin: 0 auto;
+  width: 580px;
+  padding: 3px;
+  /* border: 1px solid black; */
+}
+
+#hydro_legend span:nth-child(odd){
+  padding-right: 5px;
+}
+#hydro_legend span:nth-child(even){
+  margin-right: 10px;
+}
+
+#hydroTable .tr-hover {
+  background: #CDFFEE;
+}
+
+#hydroTable th{
+  height: 25px;
+  font-size: 11px;
+}
+
+#hydroTable td{
+  height: 22px;
+}
+#hydroTable td,
+#hydroTable th{
+  padding: 3px;
+  
+}
+
+#hydroTable tr{
+  height: 22px;
+}
+
+#close-hydro{
+  position: relative;
+  left: 378px;
+}
+
+.project{
+  color: #02AD9D;
+  text-decoration: underline;
+}
+/* title */
+.portfolio-title{
+  width: 25%;
+  text-align: left
+}
+
+#update{
+  text-align: right;
+  font-style: italic;
+}
+
+/* rtbd */
+#rtbdTable tr{
+  height: 30px;
+}
+
+#rtbdTable thead tr{
+  height: 21px;
+}
+#rtbdTable td{
+  height: 44px;
+  padding: 2px 5px;
+}
+#rtbdTable th{
+  /* font-size: 12px; */
+  padding: 0;
+}
+table#rtbdTable thead tr .tablesorter-headerAsc,
+table#rtbdTable thead tr .tablesorter-headerDesc,
+table#rtbdTable thead tr .tablesorter-header{
+  background-repeat : no-repeat;
+  background-position : center right -4px;
+}
+#rtbd-region-header,
+#rtbd-project-header,
+.rtbd-region-data,
+.rtbd-project-data{
+  width: 102px;
+  max-width: 102px;
+}
+
+.rtbd-data{
+  width: 65px;
+  max-width: 65px;
+}
+#hydroTable .td-month,
+#hydroTable .td-additional,
+#rtbdTable #gas,
+#rtbdTable #oil,
+#rtbdTable #condy,
+#rtbdTable #rtbd{
+  background-image :none;
+}
+
+/* cpb */
+#budgetTable th,
+#budgetTable td{
+  width: 140px;
+  max-width: 140px;
+}
+#budgetTable th:nth-child(2),
+#budgetTable td:nth-child(2){
+  width: 144px;
+  max-width: 144px;
+}
+th, td{
+  word-wrap: break-word;
+}
+
+thead tr{
+  height: 40px;
+}
+
+tbody td{
+  height: 44px;
+}
+/* APC */
+#APCtable th,
+#APCtable td{
+  width: 109px;
+  max-width: 109px;
+}
+
+#APCtable th:nth-child(2),
+#APCtable td:nth-child(2){
+  width: 112px;
+  max-width: 112px;
+}
+
+span.break{
+  display: block;
+}
+/* WPB, HSE */
+#WPBtable thead tr{
+  height: 42px;
+}
+#WPBtable th,
+#WPBtable td{
+  width: 196px;
+  max-width: 196px;
+  padding: 3px 20px;
+}
+#WPBtable th:nth-child(2),
+#WPBtable td:nth-child(2){
+  width: 200px;
+  max-width: 200px;
+}
+
+
+
+#HSETable th,
+#HSETable td{
+  width: 164px;
+  max-width: 164px;
+  padding: 3px 20px;
+}
+/* hover */
+.tr-even {
+  background-color: #FFF;
+} 
+
+.tr-odd{
+  background-color: #F3F3F3;
+}
+
+.zebra tr:nth-child(odd){
+  background-color: #FFF;
+}
+
+.zebra tr:nth-child(even){
+  background-color: #F0F0F0;
+}
+
+.highlighted {
+  background-color: #CDFFEE !important;
+}
+
+#page{
+  width: 7000px;
+}
+
+.swipe-wrap{
+  margin-left: 20px;
+}
+
+.chart-dimension{
+  margin: 0;
+}
+
+.table-dimension{
+  margin: 0;
+}
+
+.title{
+  margin: 5px 0 5px 20px;
+}
+
+#hydroTable,
+.title,
+.chart-dimension,
+table,
+#hydro_legend_container,
+#hydro-title{
+  width: 984px;
+}
+
+tbody{
+  height: 202px;
+}
